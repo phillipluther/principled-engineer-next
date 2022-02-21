@@ -1,13 +1,25 @@
+import { useRouter } from 'next/router';
 import Link from 'next/link';
+import PrimaryNav from '../primary-nav';
+import Logo from './principled-engineer-logo.svg';
 
 const Header = () => {
+  const router = useRouter();
+  const TitleTag = router.pathname === '/' ? 'h1' : 'p';
+
   return (
-    <h2 className="text-2xl md:text-4xl font-bold tracking-tight md:tracking-tighter leading-tight mb-20 mt-8">
-      <Link href="/">
-        <a className="hover:underline">Blog (HEADER)</a>
-      </Link>
-      .
-    </h2>
+    <header>
+      <TitleTag>
+        <Link href="/">
+          <a>
+            <Logo className="h-48px" alt="" aria-hidden />
+            <span className="sr-only">The Principled Engineer | Home</span>
+          </a>
+        </Link>
+      </TitleTag>
+
+      <PrimaryNav showHome={false} />
+    </header>
   );
 };
 

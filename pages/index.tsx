@@ -13,10 +13,7 @@ const Index = ({ allPosts }: Props) => {
   return (
     <Layout>
       <Meta />
-      <Container>
-        <h1>Hi</h1>
-        <PostList posts={allPosts} />
-      </Container>
+      <PostList posts={allPosts} />
     </Layout>
   );
 };

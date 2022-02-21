@@ -2,7 +2,6 @@ import { useRouter } from 'next/router';
 import ErrorPage from 'next/error';
 import Container from '../../components/container';
 import Post from '../../components/post';
-import { Header } from '../../components/layout';
 import Layout from '../../components/layout';
 import { getPostBySlug, getAllPosts } from '../../lib/api';
 import Head from 'next/head';
@@ -27,10 +26,7 @@ const PostPage = ({ post, morePosts, preview }: Props) => {
         <meta property="og:image" content={post.ogImage.url} />
       </Head>
 
-      <Container>
-        <Header />
-        {router.isFallback ? <p>Loading…</p> : <Post {...post} />}
-      </Container>
+      <Container>{router.isFallback ? <p>Loading…</p> : <Post {...post} />}</Container>
     </Layout>
   );
 };
