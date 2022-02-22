@@ -1,0 +1,21 @@
+@import '../../styles/utils';
+
+.container {
+  max-width: 800px;
+  padding: 0 16px;
+  margin: 48px 0 96px;
+}
+
+.header {
+}
+
+.branding {
+  @extend %flush;
+
+  line-height: 1px;
+}
+
+.logo {
+  height: 64px;
+  width: auto;
+}

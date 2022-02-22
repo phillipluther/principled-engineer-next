@@ -1,0 +1,14 @@
+%block {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+%flex {
+  display: flex;
+}
+
+%flex-wrap {
+  @extend %flex;
+  flex-wrap: wrap;
+}

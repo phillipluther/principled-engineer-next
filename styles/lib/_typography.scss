@@ -1,0 +1,25 @@
+$TEXT_SCALE: 1.25;
+
+%font-display {
+  font-family: 'Georgia', serif;
+}
+
+%font-sans {
+  font-family: 'Arial', sans-serif;
+}
+
+@function textSize($degree) {
+  $textSize: 1;
+
+  @if $degree > 0 {
+    @for $i from 1 through $degree {
+      $textSize: $textSize * $TEXT_SCALE;
+    }
+  } @else if $degree < 0 {
+    @for $i from 1 through -$degree {
+      $textSize: $textSize / $TEXT_SCALE;
+    }
+  }
+
+  @return $textSize;
+}

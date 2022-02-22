@@ -1,0 +1,6 @@
+@import '../../styles/utils';
+
+.list {
+  @extend %reset-list;
+  @extend %flex-wrap;
+}
