@@ -1,12 +1,13 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import * as styles from './layout.module.css';
 
 const Layout = ({ children }) => (
   <>
     <Head>
       <link rel="icon" href="/favicon.ico" />
     </Head>
-    <header>
+    <header className={styles.header}>
       <nav>
         <ul>
           <li>
@@ -22,8 +23,8 @@ const Layout = ({ children }) => (
         </ul>
       </nav>
     </header>
-    <main>{children}</main>
-    <footer>
+    <main className={styles.main}>{children}</main>
+    <footer className={styles.footer}>
       <p>
         The Footer. Not a footer, but <em>the</em> Footer.
       </p>
