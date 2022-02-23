@@ -1,0 +1,77 @@
+@import './utils';
+
+$MIN_TAP_TARGET_SIZE: 48px;
+$SPACING_BASE: 8px;
+$SPACING_SCALE: 1.5;
+
+%block {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+%flex {
+  display: flex;
+}
+
+%flex-wrap {
+  @extend %flex;
+  flex-wrap: wrap;
+}
+
+@function getSpacing($degree) {
+  $padScale: pow($SPACING_SCALE, $degree);
+  @return $padScale * $SPACING_BASE;
+}
+
+@mixin pad($degree: 0) {
+  padding: getSpacing($degree);
+}
+
+@mixin padX($degree: 0) {
+  $pad: getSpacing($degree);
+  padding-left: $pad;
+  padding-right: $pad;
+}
+
+@mixin padY($degree: 0) {
+  $pad: getSpacing($degree);
+  padding-top: $pad;
+  padding-bottom: $pad;
+}
+
+@mixin mar($degree: 0) {
+  margin: getSpacing($degree);
+}
+
+@mixin marX($degree: 0) {
+  $mar: getSpacing($degree);
+  margin-left: $pad;
+  margin-right: $pad;
+}
+
+@mixin marY($degree: 0) {
+  $mar: getSpacing($degree);
+  margin-top: $pad;
+  margin-bottom: $pad;
+}
+
+@mixin at($size) {
+  @if $size == 'sm' {
+    @media (min-width: 480px) {
+      @content;
+    }
+  } @else if $size == 'md' {
+    @media (min-width: 640px) {
+      @content;
+    }
+  } @else if $size == 'lg' {
+    @media (min-width: 960px) {
+      @content;
+    }
+  } @else if $size == 'xl' {
+    @media (min-width: 1200px) {
+      @content;
+    }
+  }
+}

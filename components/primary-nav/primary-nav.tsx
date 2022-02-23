@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import * as styles from './primary-nav.module.scss';
+import styles from './primary-nav.module.scss';
 
 export const navLinkData = [
   {
@@ -31,7 +31,7 @@ const PrimaryNav = ({
       return (
         <li key={name}>
           <Link href={href}>
-            <a>{label}</a>
+            <a className={styles.link}>{label}</a>
           </Link>
         </li>
       );

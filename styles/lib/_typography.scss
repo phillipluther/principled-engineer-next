@@ -1,3 +1,5 @@
+@import './utils';
+
 $TEXT_SCALE: 1.25;
 
 %font-display {
@@ -9,17 +11,5 @@ $TEXT_SCALE: 1.25;
 }
 
 @function textSize($degree) {
-  $textSize: 1;
-
-  @if $degree > 0 {
-    @for $i from 1 through $degree {
-      $textSize: $textSize * $TEXT_SCALE;
-    }
-  } @else if $degree < 0 {
-    @for $i from 1 through -$degree {
-      $textSize: $textSize / $TEXT_SCALE;
-    }
-  }
-
-  @return $textSize;
+  @return pow($TEXT_SCALE, $degree);
 }
