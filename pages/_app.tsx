@@ -1,5 +1,6 @@
 import type { AppProps } from 'next/app';
 import { ChakraProvider, extendTheme } from '@chakra-ui/react';
+import GlobalLayout from '../components/global-layout';
 import 'reset-css';
 import '@fontsource/merriweather/400.css';
 import '@fontsource/merriweather/900.css';
@@ -29,6 +30,16 @@ const theme = extendTheme({
       900: '#551600',
     },
   },
+  components: {
+    Container: {
+      sizes: {
+        lg: {
+          width: '100%',
+          maxWidth: '1200px',
+        },
+      },
+    },
+  },
   fonts: {
     heading: `'Merriweather', serif`,
     body: `'Merriweather', serif`,
@@ -49,7 +60,9 @@ const theme = extendTheme({
 
 const App = ({ Component, pageProps }: AppProps) => (
   <ChakraProvider theme={theme}>
-    <Component {...pageProps} />
+    <GlobalLayout>
+      <Component {...pageProps} />
+    </GlobalLayout>
   </ChakraProvider>
 );
 
