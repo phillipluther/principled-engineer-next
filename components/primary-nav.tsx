@@ -1,5 +1,6 @@
-import { Box, HStack, LinkOverlay, LinkBox, Text } from '@chakra-ui/react';
+import { Box, HStack, LinkOverlay, LinkBox, Text, useMediaQuery } from '@chakra-ui/react';
 import NextLink from 'next/link';
+import theme from './theme';
 
 type NavItemProps = {
   label: string;
@@ -31,17 +32,22 @@ export const navItems: NavItemProps[] = [
 
 const PrimaryNav = ({ additionalItems = [] }: PrimaryNavProps) => {
   const allNavItems = [...navItems, ...additionalItems];
+  const [isLarge] = useMediaQuery(`(min-width: ${theme.breakpoints.lg})`);
 
   return (
-    <HStack spacing="6">
-      {allNavItems.map(({ label, href }) => (
-        <LinkBox paddingY="500" fontSize="md" fontWeight="bold" textTransform="uppercase">
-          <NextLink href={href} passHref>
-            <LinkOverlay>{label}</LinkOverlay>
-          </NextLink>
-        </LinkBox>
-      ))}
-    </HStack>
+    <Box as="nav">
+      <HStack spacing="6">
+        {allNavItems.map(({ label, href }) => (
+          <LinkBox paddingY="500" fontSize="md" fontWeight="bold" key={label}>
+            <NextLink href={href} passHref>
+              <LinkOverlay>{label}</LinkOverlay>
+            </NextLink>
+          </LinkBox>
+        ))}
+      </HStack>
+
+      {isLarge ? <p>Large</p> : null}
+    </Box>
   );
 };
 

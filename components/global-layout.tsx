@@ -5,11 +5,9 @@ import PrimaryNav from './primary-nav';
 const NavbarLayout = ({ isHome = false, children }) => {
   return (
     <>
-      <Box as="header" bg="gray.900">
+      <Box as="header" bg={isHome ? 'transparent' : 'gray.900'}>
         <Container size="lg">
-          <Box as="nav" color="gray.200">
-            <PrimaryNav />
-          </Box>
+          <PrimaryNav />
         </Container>
       </Box>
       <Box as="main">{children}</Box>

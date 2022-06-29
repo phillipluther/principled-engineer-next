@@ -1,7 +1,7 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import NextImage from 'next/image';
-import NextLink from 'next/link';
+import Image from 'next/image';
+import Link from 'next/link';
 import { Box, Center, VStack, Text, VisuallyHidden } from '@chakra-ui/react';
 
 export const siteDescription =
@@ -21,23 +21,30 @@ const Home: NextPage = () => {
         width="100vw"
         bgGradient="linear(to-br, gray.900, gray.700, gray.800)"
         color="gray.100"
-        paddingY={{ base: 800, md: 900 }}
+        paddingTop="240px"
+        paddingBottom={{ base: 800, md: 900 }}
+        paddingX={{ base: 600, md: 700 }}
         zIndex="0"
         position="relative"
       >
         <VisuallyHidden as="h1">{siteTitle}</VisuallyHidden>
         <Center>
-          <NextLink href="/">
-            <NextImage
-              src="/images/principled-engineer-logo-reverse.svg"
-              // width={536}
-              width={804}
-              // height={255}
-              height={382.5}
-              alt=""
-              aria-hidden
-            />
-          </NextLink>
+          <Link href="/">
+            <a>
+              <Image
+                src="/images/principled-engineer-logo-reverse.svg"
+                width={804}
+                height={382.5}
+                alt=""
+                aria-hidden
+              />
+            </a>
+          </Link>
+        </Center>
+        <Center marginTop={{ base: 700, md: 800 }} textAlign="center" color="gray.200">
+          <Text fontSize={{ base: 'sm', md: 'lg', lg: 'xl' }} fontStyle="italic">
+            A {siteDescription}
+          </Text>
         </Center>
         <Box
           width="100%"
