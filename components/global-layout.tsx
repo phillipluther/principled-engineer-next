@@ -1,14 +1,15 @@
 import { SkipNavLink, SkipNavContent } from '@chakra-ui/skip-nav';
 import { Box, Container } from '@chakra-ui/react';
-import PrimaryNav from './primary-nav';
+import NavMenu from './nav-menu';
 
 const NavbarLayout = ({ isHome = false, children }) => {
   return (
     <>
-      <Box as="header" bg={isHome ? 'transparent' : 'gray.900'}>
-        <Container size="lg">
+      <Box as="header">
+        <NavMenu />
+        {/* <Container size="lg">
           <PrimaryNav />
-        </Container>
+        </Container> */}
       </Box>
       <Box as="main">{children}</Box>
     </>
