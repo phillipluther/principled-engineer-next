@@ -19,6 +19,7 @@ import {
   VisuallyHidden,
   Divider,
 } from '@chakra-ui/react';
+import { SkipNavLink } from '@chakra-ui/skip-nav';
 import { MdOutlineMenu } from 'react-icons/md';
 import { BsTwitter, BsEnvelopeFill, BsRssFill } from 'react-icons/bs';
 import Link from 'next/link';
@@ -65,35 +66,45 @@ export const socialItems: NavItemProps[] = [
   { label: 'Subscribe with RSS', href: '/feed.xml', icon: BsRssFill },
 ];
 
-const FullNavMenu = () => (
-  <Box as="nav" position="absolute" top="0" left="0" zIndex="10" width="100vw">
-    <Flex justify="space-between" as={Container} size="lg" color="gray.200">
-      <HStack spacing="2">
-        {primaryNavItems.map(({ label, href }) => (
-          <LinkBox paddingY="600" paddingX="400" fontSize="md" fontWeight="bold" key={label}>
-            <Link href={href} passHref>
-              <LinkOverlay>{label}</LinkOverlay>
-            </Link>
-          </LinkBox>
-        ))}
-      </HStack>
+const SocialMenu = () => (
+  <HStack spacing="2">
+    {socialItems.map(({ label, href, icon: Icon }) => (
+      <IconButton
+        as="a"
+        icon={<Icon />}
+        aria-label={label}
+        variant="link"
+        fontSize="24px"
+        padding="12px"
+        color="inherit"
+        href={href}
+      />
+    ))}
+  </HStack>
+);
 
-      <HStack spacing="2">
-        {socialItems.map(({ label, href, icon: Icon }) => (
-          <IconButton
-            as="a"
-            icon={<Icon />}
-            aria-label={label}
-            variant="link"
-            fontSize="24px"
-            padding="12px"
-            color="inherit"
-            href={href}
-          />
-        ))}
-      </HStack>
-    </Flex>
-  </Box>
+const FullNavMenu = () => (
+  <>
+    <SkipNavLink id="skip-to-content" zIndex="100">
+      Skip to Content
+    </SkipNavLink>
+
+    <Box as="nav" position="absolute" top="0" left="0" zIndex="10" width="100vw">
+      <Flex justify="space-between" as={Container} size="lg" color="gray.200">
+        <HStack spacing="2">
+          {primaryNavItems.map(({ label, href }) => (
+            <LinkBox paddingY="600" paddingX="400" fontSize="md" fontWeight="bold" key={label}>
+              <Link href={href} passHref>
+                <LinkOverlay>{label}</LinkOverlay>
+              </Link>
+            </LinkBox>
+          ))}
+        </HStack>
+
+        <SocialMenu />
+      </Flex>
+    </Box>
+  </>
 );
 
 const DrawerNavMenu = () => {
@@ -162,6 +173,10 @@ const DrawerNavMenu = () => {
             </VStack>
 
             <Divider marginY="500" color="gray.600" />
+
+            <Box marginLeft="500">
+              <SocialMenu />
+            </Box>
           </DrawerBody>
         </DrawerContent>
       </Drawer>
