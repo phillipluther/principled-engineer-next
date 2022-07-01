@@ -27,7 +27,6 @@ const Home: NextPage = () => {
         zIndex="0"
         position="relative"
       >
-        <VisuallyHidden as="h1">{siteTitle}</VisuallyHidden>
         <Center>
           <Link href="/">
             <a>
@@ -42,6 +41,7 @@ const Home: NextPage = () => {
           </Link>
         </Center>
         <Center marginTop={{ base: 700, md: 800 }} textAlign="center" color="gray.200">
+          <VisuallyHidden as="h2">{siteTitle}</VisuallyHidden>
           <Text fontSize={{ base: 'sm', md: 'lg', lg: 'xl' }} fontStyle="italic">
             A {siteDescription}
           </Text>
