@@ -1,7 +1,6 @@
 import type { AppProps } from 'next/app';
 import { ChakraProvider, extendTheme } from '@chakra-ui/react';
 import GlobalLayout from '../components/global-layout';
-import 'reset-css';
 import '@fontsource/merriweather/400.css';
 import '@fontsource/merriweather/900.css';
 import theme from '../components/theme';

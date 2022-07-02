@@ -58,6 +58,42 @@ const theme = extendTheme({
     xl: '1280px',
     '2xl': '1536px',
   },
+  layerStyles: {
+    padded: {
+      padding: {
+        base: '600',
+        md: '700',
+      },
+    },
+    paddedX: {
+      paddingX: {
+        base: '600',
+        md: '700',
+      },
+      paddingY: 0,
+    },
+    paddedY: {
+      paddingX: 0,
+      paddingY: {
+        base: '600',
+        md: '700',
+      },
+    },
+    textBlock: {
+      lineHeight: '6',
+      '& p': {
+        marginBottom: '1.618rem',
+      },
+    },
+  },
+  textStyles: {
+    link: {
+      color: 'brand.700',
+      '&:hover': {
+        color: 'brand.900',
+      },
+    },
+  },
 });
 
 export default theme;

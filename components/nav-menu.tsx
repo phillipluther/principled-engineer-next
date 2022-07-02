@@ -78,6 +78,7 @@ const SocialMenu = () => (
         padding="12px"
         color="inherit"
         href={href}
+        key={href}
       />
     ))}
   </HStack>

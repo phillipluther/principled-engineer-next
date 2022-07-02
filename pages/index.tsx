@@ -2,7 +2,7 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Box, Center, VStack, Text, VisuallyHidden } from '@chakra-ui/react';
+import { Box, Center, Container, Text, VisuallyHidden } from '@chakra-ui/react';
 
 export const siteDescription =
   'blog about building modern web applications with JavaScript, CSS and HTML';
@@ -58,6 +58,10 @@ const Home: NextPage = () => {
           aria-hidden
         />
       </Box>
+
+      <Container size="lg">
+        <p>Regular ol' content</p>
+      </Container>
     </>
   );
 };
