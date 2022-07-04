@@ -23,7 +23,7 @@ const NavbarLayout = ({ children }) => {
 
       <Box as="footer" bg="gray.100" layerStyle="padded">
         <VisuallyHidden as="h2">Site Footer</VisuallyHidden>
-        <VStack align="center" spacing="8">
+        <VStack align="center" spacing={{ base: 4, md: 6, lg: 8 }}>
           <Flex>
             <VisuallyHidden as="h3">Supplemental Navigation</VisuallyHidden>
             {primaryNavItems.map(({ label, href }) => (
