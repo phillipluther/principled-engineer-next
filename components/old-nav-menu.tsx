@@ -21,50 +21,49 @@ import {
 } from '@chakra-ui/react';
 import { SkipNavLink } from '@chakra-ui/skip-nav';
 import { MdOutlineMenu } from 'react-icons/md';
-import { BsTwitter, BsEnvelopeFill, BsRssFill } from 'react-icons/bs';
+// import { BsTwitter, BsEnvelopeFill, BsRssFill } from 'react-icons/bs';
 import Link from 'next/link';
 import Image from 'next/image';
 import React, { useRef } from 'react';
 import theme from './theme';
 
-type NavItemProps = {
+export type NavMenuItemProps = {
   label: string;
   href: string;
-  icon?: React.FC;
 };
 
-export const primaryNavItems: NavItemProps[] = [
-  {
-    label: 'Home',
-    href: '/',
-  },
-  {
-    label: 'Posts',
-    href: '/posts',
-  },
-  {
-    label: 'About',
-    href: '/about',
-  },
-  {
-    label: 'Contact',
-    href: '/contact',
-  },
-];
+// export const primaryNavItems: NavItemProps[] = [
+//   {
+//     label: 'Home',
+//     href: '/',
+//   },
+//   {
+//     label: 'Posts',
+//     href: '/posts',
+//   },
+//   {
+//     label: 'About',
+//     href: '/about',
+//   },
+//   {
+//     label: 'Contact',
+//     href: '/contact',
+//   },
+// ];
 
-export const socialItems: NavItemProps[] = [
-  {
-    label: '@principledeng on Twitter',
-    href: 'https://twitter.com/principledeng',
-    icon: BsTwitter,
-  },
-  {
-    label: 'hello@principled.engineer',
-    href: 'mailto:hello@principled.engineer',
-    icon: BsEnvelopeFill,
-  },
-  { label: 'Subscribe with RSS', href: '/feed.xml', icon: BsRssFill },
-];
+// export const socialItems: NavItemProps[] = [
+//   {
+//     label: '@principledeng on Twitter',
+//     href: 'https://twitter.com/principledeng',
+//     icon: BsTwitter,
+//   },
+//   {
+//     label: 'hello@principled.engineer',
+//     href: 'mailto:hello@principled.engineer',
+//     icon: BsEnvelopeFill,
+//   },
+//   { label: 'Subscribe with RSS', href: '/feed.xml', icon: BsRssFill },
+// ];
 
 const SocialMenu = () => (
   <HStack spacing="2">
@@ -185,10 +184,10 @@ const DrawerNavMenu = () => {
   );
 };
 
-const NavMenu = () => {
-  const [showFullNav] = useMediaQuery(`(min-width: ${theme.breakpoints.lg})`);
+// const NavMenu = () => {
+//   const [showFullNav] = useMediaQuery(`(min-width: ${theme.breakpoints.lg})`);
 
-  return showFullNav ? <FullNavMenu /> : <DrawerNavMenu />;
-};
+//   return showFullNav ? <FullNavMenu /> : <DrawerNavMenu />;
+// };
 
-export default NavMenu;
+// export default NavMenu;

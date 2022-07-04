@@ -1,8 +1,9 @@
 import { SkipNavContent } from '@chakra-ui/skip-nav';
-import { Box, Flex, Container, VStack, IconButton, Text, VisuallyHidden } from '@chakra-ui/react';
+import { Box, Flex, Container, VStack, Text, VisuallyHidden } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
 import NextLink from 'next/link';
-import NavMenu, { primaryNavItems, socialItems } from './nav-menu';
+import NavMenu, { primaryNavItems } from './nav-menu';
+import SocialMenu from './social-menu';
 
 const NavbarLayout = ({ children }) => {
   const router = useRouter();
@@ -31,22 +32,9 @@ const NavbarLayout = ({ children }) => {
               </Text>
             ))}
           </Flex>
-          <Flex>
+          <Flex color="brand.700">
             <VisuallyHidden as="h3">Follow the Principled Engineer</VisuallyHidden>
-            {socialItems.map(({ label, href, icon: Icon }) => (
-              <IconButton
-                as="a"
-                icon={<Icon />}
-                aria-label={label}
-                variant="link"
-                fontSize="24px"
-                padding="12px"
-                color="brand.700"
-                _hover={{ color: 'brand.900' }}
-                href={href}
-                key={href}
-              />
-            ))}{' '}
+            <SocialMenu />
           </Flex>
 
           <Container margin="0" padding="0" layerStyle="textBlock" fontSize="sm" as="section">
