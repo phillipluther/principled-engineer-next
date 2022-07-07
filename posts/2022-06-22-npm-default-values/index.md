@@ -2,7 +2,7 @@
 title: 'Better Bootstrapping: Set Default Values for NPM Init'
 summary: "Set your NPM default values! Manually editing every new project's `package.json` is a small thing that annoys greatly."
 author: Phillip Luther
-published: 2022-06-22T07:00:00.000Z
+published: '2022-06-22T07:00:00.000Z'
 tags:
   - Node.js
   - NPM
@@ -11,6 +11,7 @@ keywords:
   - npm default value
   - npm init
 series: Practicals
+slug: 'set-default-values-npm-init'
 ---
 
 Tale as old as time: an idea for a new JavaScript project pops into your head, you npm init the thing because we npm init all the things, and then you're off to the races.

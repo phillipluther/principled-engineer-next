@@ -1,34 +1,30 @@
 import type { NextPage } from 'next';
-import Head from 'next/head';
 import Image from 'next/image';
-import Link from 'next/link';
+import NextLink from 'next/link';
 import { Box, Center, Container, Text, VisuallyHidden } from '@chakra-ui/react';
-
-export const siteDescription =
-  'blog about building modern web applications with JavaScript, CSS and HTML';
-
-export const siteTitle = 'The Principled Engineer';
+import Seo, { defaultTitle as title, defaultDescription as description } from '../components/seo';
 
 const Home: NextPage = () => {
   return (
     <>
-      <Head>
-        <title>{siteTitle}</title>
-        <meta name="description" content={`The Principled Engineer is a ${siteDescription}`} />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <Seo>
+        <meta
+          name="description"
+          content={`The Principled Engineer is ${description.toLowerCase()}`}
+        />
+      </Seo>
       <Box
         width="100vw"
         bgGradient="linear(to-br, gray.900, gray.700, gray.800)"
         color="gray.100"
-        paddingTop="240px"
-        paddingBottom={{ base: 800, md: 900 }}
         paddingX={{ base: 600, md: 700 }}
+        paddingTop={{ base: '240px', md: '180px' }}
+        paddingBottom="800"
         zIndex="0"
         position="relative"
       >
         <Center>
-          <Link href="/">
+          <NextLink href="/">
             <a>
               <Image
                 src="/images/principled-engineer-logo-reverse.svg"
@@ -38,12 +34,12 @@ const Home: NextPage = () => {
                 aria-hidden
               />
             </a>
-          </Link>
+          </NextLink>
         </Center>
         <Center marginTop={{ base: 700, md: 800 }} textAlign="center" color="gray.200">
-          <VisuallyHidden as="h2">{siteTitle}</VisuallyHidden>
+          <VisuallyHidden as="h2">{title}</VisuallyHidden>
           <Text fontSize={{ base: 'sm', md: 'lg', lg: 'xl' }} fontStyle="italic">
-            A {siteDescription}
+            {description}
           </Text>
         </Center>
         <Box

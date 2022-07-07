@@ -1,43 +1,83 @@
-import { SkipNavContent } from '@chakra-ui/skip-nav';
-import { Box, Flex, Container, VStack, Text, VisuallyHidden } from '@chakra-ui/react';
-import { useRouter } from 'next/router';
+import {
+  Box,
+  Flex,
+  Heading,
+  Container,
+  HStack,
+  VStack,
+  Text,
+  VisuallyHidden,
+} from '@chakra-ui/react';
+import NextImage from 'next/image';
 import NextLink from 'next/link';
-import NavMenu, { primaryNavItems } from './nav-menu';
+import { HorizontalNavMenu, DrawerNavMenu } from './nav-menu';
 import SocialMenu from './social-menu';
+import { SkipNavLink, SkipNavTarget } from './skip-nav';
 
-const NavbarLayout = ({ children }) => {
-  const router = useRouter();
-  const isHome = router.asPath === '/';
+export type GlobalLayoutProps = {
+  header?: React.ReactElement;
+};
 
+const GlobalLayout = ({ header: CustomHeader, children }) => {
   return (
     <>
-      <Box as="header">
-        {isHome && <VisuallyHidden as="h1">The Principled Engineer</VisuallyHidden>}
+      <Box as="header" width="100vw">
+        {CustomHeader ? (
+          <CustomHeader />
+        ) : (
+          <Container size="lg">
+            <Flex justify="space-between" align="center">
+              <Flex justify="start" align="center">
+                <SkipNavLink label="Skip to Content" />
 
-        <NavMenu />
+                <Heading as="h1" height="48px" width="48px" marginRight="500">
+                  <NextLink href="/" passHref>
+                    <a>
+                      <VisuallyHidden>The Principled Engineer</VisuallyHidden>
+                      <NextImage
+                        src="/images/badge.png"
+                        width={48}
+                        height={48}
+                        aria-hidden
+                        alt=""
+                      />
+                    </a>
+                  </NextLink>
+                </Heading>
+
+                <HorizontalNavMenu home={false} />
+              </Flex>
+
+              <SocialMenu />
+            </Flex>
+          </Container>
+        )}
       </Box>
+
       <Box as="main">
-        <SkipNavContent id="skip-to-content" />
+        <SkipNavTarget />
         {children}
       </Box>
 
       <Box as="footer" bg="gray.100" layerStyle="padded">
         <VisuallyHidden as="h2">Site Footer</VisuallyHidden>
-        <VStack align="center" spacing={{ base: 4, md: 6, lg: 8 }}>
-          <Flex>
+        <VStack align="center" spacing="0">
+          <Flex as="section">
             <VisuallyHidden as="h3">Supplemental Navigation</VisuallyHidden>
-            {primaryNavItems.map(({ label, href }) => (
-              <Text marginRight="4" textStyle="link" key={href}>
-                <NextLink href={href}>{label}</NextLink>
-              </Text>
-            ))}
+            <HorizontalNavMenu color="brand.700" />
           </Flex>
-          <Flex color="brand.700">
-            <VisuallyHidden as="h3">Follow the Principled Engineer</VisuallyHidden>
+          <Flex as="section" color="brand.700">
+            <VisuallyHidden as="h3">Never Miss a Post!</VisuallyHidden>
             <SocialMenu />
           </Flex>
 
-          <Container margin="0" padding="0" layerStyle="textBlock" fontSize="sm" as="section">
+          <Container
+            padding="0"
+            paddingTop={{ base: 600, md: 700 }}
+            layerStyle="textBlock"
+            fontSize="sm"
+            as="section"
+          >
             <VisuallyHidden as="h3">Legal Information and Disclaimers</VisuallyHidden>
             <Text>
               All Principled Engineer content is Copyright &copy; {new Date().getFullYear()} by
@@ -55,4 +95,4 @@ const NavbarLayout = ({ children }) => {
   );
 };
 
-export default NavbarLayout;
+export default GlobalLayout;
