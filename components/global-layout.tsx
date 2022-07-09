@@ -1,18 +1,8 @@
-import {
-  Box,
-  Flex,
-  Heading,
-  Container,
-  HStack,
-  VStack,
-  Text,
-  VisuallyHidden,
-} from '@chakra-ui/react';
-import NextImage from 'next/image';
-import NextLink from 'next/link';
-import { HorizontalNavMenu, DrawerNavMenu } from './nav-menu';
+import { Box, Flex, Container, VStack, Text, VisuallyHidden } from '@chakra-ui/react';
+import { HorizontalNavMenu } from './nav-menu';
 import SocialMenu from './social-menu';
-import { SkipNavLink, SkipNavTarget } from './skip-nav';
+import { SkipNavTarget } from './skip-nav';
+import GlobalHeader from './global-header';
 
 export type GlobalLayoutProps = {
   header?: React.ReactElement;
@@ -22,36 +12,7 @@ const GlobalLayout = ({ header: CustomHeader, children }) => {
   return (
     <>
       <Box as="header" width="100vw">
-        {CustomHeader ? (
-          <CustomHeader />
-        ) : (
-          <Container size="lg">
-            <Flex justify="space-between" align="center">
-              <Flex justify="start" align="center">
-                <SkipNavLink label="Skip to Content" />
-
-                <Heading as="h1" height="48px" width="48px" marginRight="500">
-                  <NextLink href="/" passHref>
-                    <a>
-                      <VisuallyHidden>The Principled Engineer</VisuallyHidden>
-                      <NextImage
-                        src="/images/badge.png"
-                        width={48}
-                        height={48}
-                        aria-hidden
-                        alt=""
-                      />
-                    </a>
-                  </NextLink>
-                </Heading>
-
-                <HorizontalNavMenu home={false} />
-              </Flex>
-
-              <SocialMenu />
-            </Flex>
-          </Container>
-        )}
+        {CustomHeader ? <CustomHeader /> : <GlobalHeader />}
       </Box>
 
       <Box as="main">
