@@ -33,16 +33,16 @@ const DrawerNavMenu = () => {
         ref={btnRef}
         onClick={onOpen}
         aria-label="Open Navigation Menu"
-        bg="transparent"
+        bg="gray.800"
         fontSize="32px"
-        width="64px"
-        height="64px"
+        width="56px"
+        height="56px"
         color="gray.200"
         position="fixed"
         top={{ base: theme.space['500'], sm: theme.space['600'] }}
         left={{ base: theme.space['500'], sm: theme.space['600'] }}
         zIndex="10"
-        _hover={{ bg: 'gray.800' }}
+        _hover={{ bg: 'gray.900' }}
         _expanded={{ bg: 'gray.800' }}
         _focus={{ boxShadow: 'outline' }}
       />
@@ -57,7 +57,7 @@ const DrawerNavMenu = () => {
             <Link href="/">
               <a onClick={onClose}>
                 <Image
-                  src="/images/principled-engineer-logo-reverse.svg"
+                  src="/images/principled-engineer-header-logo-reverse.svg"
                   width={134}
                   height={64}
                   alt=""
@@ -90,7 +90,7 @@ const DrawerNavMenu = () => {
             <Divider marginY="500" color="gray.600" />
 
             <Box marginLeft="500">
-              <SocialMenu />
+              <SocialMenu onDark />
             </Box>
           </DrawerBody>
         </DrawerContent>

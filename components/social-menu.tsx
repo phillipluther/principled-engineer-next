@@ -20,7 +20,7 @@ export const socialItems: SocialMenuItemProps[] = [
   { label: 'Subscribe with RSS', href: '/feed.xml', icon: BsRssFill },
 ];
 
-const SocialMenu = () => (
+const SocialMenu = ({ onDark = false }) => (
   <HStack spacing="2">
     {socialItems.map(({ label, href, icon: Icon }) => (
       <IconButton
@@ -30,9 +30,10 @@ const SocialMenu = () => (
         variant="link"
         fontSize="24px"
         padding="12px"
-        color="inherit"
         href={href}
         key={href}
+        color={onDark ? 'gray.200' : 'gray.600'}
+        _hover={{ color: onDark ? 'gray.100' : 'gray.900' }}
       />
     ))}
   </HStack>

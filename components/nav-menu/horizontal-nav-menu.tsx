@@ -6,7 +6,14 @@ const HorizontalNavMenu = ({ home = true, ...props }: { home?: boolean; [key: st
   <HStack spacing="2" {...props}>
     {primaryNavItems.map(({ label, href }) =>
       !home && href === '/' ? null : (
-        <LinkBox paddingX="400" paddingY="500" fontSize="md" fontWeight="bold" key={label}>
+        <LinkBox
+          paddingX="400"
+          paddingY="500"
+          fontSize="md"
+          fontWeight="bold"
+          key={label}
+          textStyle="navLink"
+        >
           <Link href={href} passHref>
             <LinkOverlay>{label}</LinkOverlay>
           </Link>

@@ -96,10 +96,11 @@ const theme = extendTheme({
     },
   },
   textStyles: {
-    link: {
-      color: 'brand.700',
+    navLink: {
+      color: 'gray.600',
       '&:hover': {
-        color: 'brand.900',
+        color: 'gray.900',
+        textDecoration: 'underline',
       },
     },
   },
