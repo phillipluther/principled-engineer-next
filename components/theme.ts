@@ -37,6 +37,14 @@ const theme = extendTheme({
   components: {
     Container: {
       sizes: {
+        sm: {
+          width: '100%',
+          maxWidth: '768px',
+        },
+        md: {
+          width: '100%',
+          maxWidth: '992px',
+        },
         lg: {
           width: '100%',
           maxWidth: '1280px',
@@ -45,7 +53,7 @@ const theme = extendTheme({
     },
   },
   fonts: {
-    heading: `'Merriweather', serif`,
+    heading: `'Playfair Display', serif`,
     body: `'Merriweather', serif`,
   },
   space: {
