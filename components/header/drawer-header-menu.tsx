@@ -7,10 +7,9 @@ import {
   DrawerHeader,
   DrawerBody,
   Box,
+  Flex,
   VStack,
   Divider,
-  LinkBox,
-  LinkOverlay,
   VisuallyHidden,
   useDisclosure,
 } from '@chakra-ui/react';
@@ -18,36 +17,40 @@ import { MdOutlineMenu } from 'react-icons/md';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRef } from 'react';
-import { primaryNavItems } from './nav-menu-items';
+import HeaderLogo from './header-logo';
 import theme from '../theme';
 import SocialMenu from '../social-menu';
+import PrimaryNav from '../primary-nav';
 
-const DrawerNavMenu = () => {
+const DrawerHeaderMenu = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = useRef();
 
   return (
     <>
-      <IconButton
-        icon={<MdOutlineMenu />}
-        ref={btnRef}
-        onClick={onOpen}
-        aria-label="Open Navigation Menu"
-        bg="gray.800"
-        fontSize="32px"
-        width="56px"
-        height="56px"
-        color="gray.200"
-        position="fixed"
-        top={{ base: theme.space['500'], sm: theme.space['600'] }}
-        left={{ base: theme.space['500'], sm: theme.space['600'] }}
-        zIndex="10"
-        _hover={{ bg: 'gray.900' }}
-        _expanded={{ bg: 'gray.800' }}
-        _focus={{ boxShadow: 'outline' }}
-      />
+      <Flex justify="space-between" padding={{ base: theme.space['500'], sm: theme.space['600'] }}>
+        <HeaderLogo />
+        <IconButton
+          icon={<MdOutlineMenu />}
+          ref={btnRef}
+          onClick={onOpen}
+          aria-label="Open Navigation Menu"
+          bg="gray.600"
+          fontSize="32px"
+          width="56px"
+          height="56px"
+          color="gray.100"
+          position="fixed"
+          top={{ base: theme.space['500'], sm: theme.space['600'] }}
+          right={{ base: theme.space['500'], sm: theme.space['600'] }}
+          zIndex="10"
+          _hover={{ bg: 'gray.900' }}
+          _expanded={{ bg: 'gray.600' }}
+          _focus={{ boxShadow: 'outline' }}
+        />
+      </Flex>
 
-      <Drawer isOpen={isOpen} placement="left" onClose={onClose} finalFocusRef={btnRef}>
+      <Drawer isOpen={isOpen} placement="right" onClose={onClose} finalFocusRef={btnRef}>
         <DrawerOverlay />
         <DrawerContent bg="gray.800" color="gray.200">
           <DrawerCloseButton aria-label="Close Navigation Menu" />
@@ -70,21 +73,13 @@ const DrawerNavMenu = () => {
             <Divider marginBottom="500" color="gray.600" />
 
             <VStack as="nav" spacing="0">
-              {primaryNavItems.map(({ label, href }) => (
-                <LinkBox
-                  width="100%"
-                  paddingY="500"
-                  paddingX="600"
-                  fontSize="md"
-                  fontWeight="bold"
-                  key={label}
-                  _hover={{ bg: 'gray.900' }}
-                >
-                  <Link href={href} passHref>
-                    <LinkOverlay onClick={onClose}>{label}</LinkOverlay>
-                  </Link>
-                </LinkBox>
-              ))}
+              <PrimaryNav
+                width="100%"
+                color="inherit"
+                paddingX="600"
+                _hover={{ color: 'gray.100', bg: 'gray.900' }}
+                onClick={onClose}
+              />
             </VStack>
 
             <Divider marginY="500" color="gray.600" />
@@ -99,4 +94,4 @@ const DrawerNavMenu = () => {
   );
 };
 
-export default DrawerNavMenu;
+export default DrawerHeaderMenu;

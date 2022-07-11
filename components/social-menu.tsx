@@ -1,6 +1,6 @@
 import { BsTwitter, BsEnvelopeFill, BsRssFill } from 'react-icons/bs';
 import { HStack, IconButton } from '@chakra-ui/react';
-import { PrimaryNavItemProps } from './nav-menu';
+import { PrimaryNavItemProps } from './primary-nav';
 
 export type SocialMenuItemProps = PrimaryNavItemProps & {
   icon: React.FC;

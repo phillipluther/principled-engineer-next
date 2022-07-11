@@ -4,7 +4,7 @@ import NextLink from 'next/link';
 import { Box, Center, Container, Text, VisuallyHidden } from '@chakra-ui/react';
 import Seo, { defaultTitle as title, defaultDescription as description } from '../components/seo';
 
-const Home: NextPage = () => {
+const HomePage: NextPage & { customHeader?: React.FC } = () => {
   return (
     <>
       <Seo>
@@ -13,7 +13,8 @@ const Home: NextPage = () => {
           content={`The Principled Engineer is ${description.toLowerCase()}`}
         />
       </Seo>
-      <Box
+
+      {/* <Box
         width="100vw"
         bgGradient="linear(to-br, gray.900, gray.700, gray.800)"
         color="gray.100"
@@ -53,7 +54,7 @@ const Home: NextPage = () => {
           zIndex={-1}
           aria-hidden
         />
-      </Box>
+      </Box> */}
 
       <Container size="lg">
         <p>Regular ol' content</p>
@@ -62,4 +63,4 @@ const Home: NextPage = () => {
   );
 };
 
-export default Home;
+export default HomePage;

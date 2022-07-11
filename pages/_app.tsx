@@ -1,19 +1,11 @@
-import type { AppProps } from 'next/app';
-import { ChakraProvider, extendTheme } from '@chakra-ui/react';
-import GlobalLayout from '../components/global-layout';
+import React from 'react';
+import { ChakraProvider } from '@chakra-ui/react';
 import '@fontsource/merriweather/400.css';
 import '@fontsource/merriweather/900.css';
+import Layout from '../components/layout';
 import theme from '../components/theme';
-import { NextComponentType } from 'next';
-import React from 'react';
 
-type CustomAppProps = AppProps & {
-  Component: NextComponentType & { layout?: React.FC };
-};
-
-const App = ({ Component, pageProps }: CustomAppProps) => {
-  const Layout = Component.layout || GlobalLayout;
-
+const App = ({ Component, pageProps }) => {
   return (
     <ChakraProvider theme={theme}>
       <Layout>
