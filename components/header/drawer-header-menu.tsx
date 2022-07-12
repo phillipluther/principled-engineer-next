@@ -35,17 +35,19 @@ const DrawerHeaderMenu = () => {
           ref={btnRef}
           onClick={onOpen}
           aria-label="Open Navigation Menu"
-          bg="gray.600"
+          bg="#fff"
+          borderBottom={`1px solid ${theme.colors.gray['300']}`}
+          boxShadow="0 1px 4px rgba(0, 0, 0, 0.15)"
           fontSize="32px"
           width="56px"
           height="56px"
-          color="gray.100"
+          color="gray.700"
           position="fixed"
           top={{ base: theme.space['500'], sm: theme.space['600'] }}
           right={{ base: theme.space['500'], sm: theme.space['600'] }}
           zIndex="10"
-          _hover={{ bg: 'gray.900' }}
-          _expanded={{ bg: 'gray.600' }}
+          _hover={{ bg: 'gray.100' }}
+          _expanded={{ bg: 'gray.100' }}
           _focus={{ boxShadow: 'outline' }}
         />
       </Flex>

@@ -13,7 +13,7 @@ export const primaryNavItems: PrimaryNavItemProps[] = [
   },
   {
     label: 'Posts',
-    href: '/posts',
+    href: '/blog',
   },
   {
     label: 'About',

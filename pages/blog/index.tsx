@@ -4,9 +4,11 @@ import { getPostsData, PostProps } from '../../lib/posts';
 import { formatDate } from '../../lib/utils';
 import Seo from '../../components/seo';
 import ContentHeader from '../../components/content-header';
+import PostSummary from '../../components/post-summary';
 
 const title = 'All Blog Posts';
-const description = 'A collection of blog posts from all categories, series, and topics.';
+const description =
+  'A humble collection of articles spanning all blog categories, series, and motley topics pertaining to frontend engineering';
 
 const AllPosts = ({ postsData }: { postsData: PostProps[] }) => {
   return (
@@ -17,7 +19,8 @@ const AllPosts = ({ postsData }: { postsData: PostProps[] }) => {
       <Wrap spacing="4" as="section">
         {postsData.map((postData) => (
           <WrapItem as="li" key={postData.slug}>
-            <Box as="article">
+            <PostSummary {...postData} />
+            {/* <Box as="article">
               <Box as="header">
                 <Heading as="h2">
                   <Link href={`/blog/${postData.slug}`}>{postData.title}</Link>
@@ -28,7 +31,7 @@ const AllPosts = ({ postsData }: { postsData: PostProps[] }) => {
               </Box>
 
               {postData.summary && <Text>{postData.summary}</Text>}
-            </Box>
+            </Box> */}
           </WrapItem>
         ))}
       </Wrap>

@@ -1,9 +1,9 @@
 import Seo from '../components/seo';
 import ContentHeader from '../components/content-header';
 
-const title = 'About';
+const title = 'Contact';
 const description =
-  'On both the Principled Engineer as a website and on its author, Phillip Luther';
+  'Methods employed to contact the author and maintainer of The Principled Engineer';
 
 const AboutPage = () => (
   <>
