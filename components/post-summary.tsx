@@ -1,6 +1,5 @@
-import { Container, Box, Heading, Text, VisuallyHidden } from '@chakra-ui/react';
+import { Box, Heading, Text, VisuallyHidden } from '@chakra-ui/react';
 import NextLink from 'next/link';
-// import NextImage from 'next/image';
 import { PostProps } from '../lib/posts';
 import { formatDate } from '../lib/utils';
 
@@ -15,7 +14,7 @@ const PostSummary = ({
   slug,
   headingLevel = 'h2',
 }: PostSummaryProps) => (
-  <Container as="article" layerStyle="textBlock">
+  <Box as="article" layerStyle="textBlock">
     <Box as="header" color="gray.600">
       <Heading as={headingLevel}>
         <NextLink href={`/blog/${slug}`}>{title}</NextLink>
@@ -32,7 +31,7 @@ const PostSummary = ({
         </a>
       </NextLink>
     </Box>
-  </Container>
+  </Box>
 );
 
 export default PostSummary;

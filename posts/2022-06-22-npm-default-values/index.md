@@ -12,6 +12,9 @@ keywords:
   - npm init
 series: Practicals
 slug: 'set-default-values-npm-init'
+cover: './old-boots.jpeg'
+cover_credit: 'Oziel Gomez'
+cover_credit_link: 'https://unsplash.com/@ozgomz'
 ---
 
 Tale as old as time: an idea for a new JavaScript project pops into your head, you npm init the thing because we npm init all the things, and then you're off to the races.

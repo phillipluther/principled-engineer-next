@@ -29,22 +29,47 @@ export const sortObjByProp = (obj: { [key: string]: any }, prop: string) =>
     return 0;
   });
 
-export const getPostsData = (sortFunc = null): PostProps[] => {
-  const markdownFiles = klaw(postsDir, { nodir: true }).filter(({ path: filename }) =>
-    /\.mdx?/.test(filename),
-  );
+export const getPostFiles = () =>
+  klaw(postsDir, { nodir: true }).filter(({ path: filename }) => /\.mdx?/.test(filename));
 
+/**
+ * TODO: this'll get nuts and costly; implement some kind of simple caching strategy
+ */
+export function getPostData(id: string) {
+  const allPostData = getAllPostData();
+  const postData = allPostData.find(({ slug }) => slug === id);
+
+  return {
+    id,
+    ...postData,
+  };
+}
+
+export const getAllPostData = (sortFunc = null): PostProps[] => {
+  const markdownFiles = getPostFiles();
   const postsData = markdownFiles.map(({ path: filepath }) => {
     const fileContents = fs.readFileSync(filepath, 'utf8');
     const { content: markdown, data: metadata } = matter(fileContents);
     const slug = metadata.slug || path.parse(filepath).name;
 
-    return {
+    const postData = {
       ...metadata,
       markdown,
       slug,
     };
+
+    return postData;
   });
 
   return sortFunc ? sortFunc(postsData) : sortObjByProp(postsData, 'date');
+};
+
+export const getPostPathParams = () => {
+  const allPostData = getAllPostData();
+
+  return allPostData.map(({ slug: id }) => {
+    return {
+      params: { id },
+    };
+  });
 };

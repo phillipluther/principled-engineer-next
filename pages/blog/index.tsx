@@ -1,10 +1,9 @@
-import Link from 'next/link';
-import { Box, Wrap, WrapItem, Heading, Text } from '@chakra-ui/react';
-import { getPostsData, PostProps } from '../../lib/posts';
-import { formatDate } from '../../lib/utils';
+import { Container, Wrap, WrapItem } from '@chakra-ui/react';
+import { getAllPostData, PostProps } from '../../lib/posts';
 import Seo from '../../components/seo';
 import ContentHeader from '../../components/content-header';
 import PostSummary from '../../components/post-summary';
+import theme from '../../components/theme';
 
 const title = 'All Blog Posts';
 const description =
@@ -16,25 +15,23 @@ const AllPosts = ({ postsData }: { postsData: PostProps[] }) => {
       <Seo title={title} description={description} />
       <ContentHeader title={title} description={description} />
 
-      <Wrap spacing="4" as="section">
-        {postsData.map((postData) => (
-          <WrapItem as="li" key={postData.slug}>
-            <PostSummary {...postData} />
-            {/* <Box as="article">
-              <Box as="header">
-                <Heading as="h2">
-                  <Link href={`/blog/${postData.slug}`}>{postData.title}</Link>
-                </Heading>
-                <Text>
-                  Published {formatDate(postData.published)} by {postData.author}
-                </Text>
-              </Box>
-
-              {postData.summary && <Text>{postData.summary}</Text>}
-            </Box> */}
-          </WrapItem>
-        ))}
-      </Wrap>
+      <Container as="section" size="lg">
+        <Wrap spacing={{ base: 600, xl: 700 }}>
+          {postsData.map((postData) => (
+            <WrapItem
+              as="li"
+              key={postData.slug}
+              width={{
+                base: '100%',
+                md: `calc(50% - ${theme.space['600']})`,
+                xl: `calc(33% - ${theme.space['700']})`,
+              }}
+            >
+              <PostSummary {...postData} />
+            </WrapItem>
+          ))}
+        </Wrap>
+      </Container>
     </>
   );
 };
@@ -45,7 +42,7 @@ AllPosts.description = description;
 export default AllPosts;
 
 export async function getStaticProps() {
-  const postsData = getPostsData();
+  const postsData = getAllPostData();
 
   return {
     props: {
