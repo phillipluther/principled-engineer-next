@@ -97,7 +97,7 @@ const theme = extendTheme({
       },
     },
     textBlock: {
-      lineHeight: '6',
+      lineHeight: '1.618',
       '& p, & h2, & h3, & h4, & h5': {
         marginBottom: '1.618rem',
       },

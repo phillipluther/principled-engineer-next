@@ -16,7 +16,7 @@ const PostSummary = ({
 }: PostSummaryProps) => (
   <Box as="article" layerStyle="textBlock">
     <Box as="header" color="gray.600">
-      <Heading as={headingLevel}>
+      <Heading as={headingLevel} size="lg">
         <NextLink href={`/blog/${slug}`}>{title}</NextLink>
       </Heading>
       <Text>{formatDate(published)}</Text>

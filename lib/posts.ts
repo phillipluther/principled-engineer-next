@@ -8,6 +8,7 @@ const postsDir = path.join(process.cwd(), 'posts');
 export type PostProps = {
   id: string;
   markdown: string;
+  html: string;
   title: string;
   author: string;
   slug: string;
@@ -35,13 +36,13 @@ export const getPostFiles = () =>
 /**
  * TODO: this'll get nuts and costly; implement some kind of simple caching strategy
  */
-export function getPostData(id: string) {
+export async function getPostData(id: string) {
   const allPostData = getAllPostData();
   const postData = allPostData.find(({ slug }) => slug === id);
 
   return {
-    id,
     ...postData,
+    id,
   };
 }
 
