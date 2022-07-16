@@ -7,7 +7,7 @@ import theme from '../../components/theme';
 
 const title = 'All Blog Posts';
 const description =
-  'A humble collection of articles spanning all blog categories, series, and motley topics pertaining to frontend engineering';
+  'A humble collection of articles spanning all blog categories, series, and the motley topics of JavaScript and CSS';
 
 const AllPosts = ({ postsData }: { postsData: PostProps[] }) => {
   return (

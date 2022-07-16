@@ -35,3 +35,4 @@ yarn-error.log*
 *.tsbuildinfo
 
 public/images/blog
+public/assets/

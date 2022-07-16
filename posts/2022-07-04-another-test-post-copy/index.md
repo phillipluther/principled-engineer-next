@@ -11,7 +11,7 @@ keywords:
   - one
   - two
 slug: 'blurbs-blurbing-blurbly'
-cover: './blurbs.jpg'
+cover: '/assets/blurbs.jpg'
 ---
 
 I can't be bothered to try.

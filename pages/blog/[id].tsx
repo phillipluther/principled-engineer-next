@@ -6,12 +6,6 @@ import { formatDate } from '../../lib/utils';
 import Seo from '../../components/seo';
 import ContentHeader from '../../components/content-header';
 
-// const renderers = {
-//   image: (props) => {
-//     return <NextImage src={props.src} alt={props.alt} layout="fill" />;
-//   },
-// };
-
 const MarkdownComponents = {
   p: (paragraph: { children?: boolean; node?: any }) => {
     const { node } = paragraph;
@@ -19,7 +13,13 @@ const MarkdownComponents = {
     if (node.children[0].tagName === 'img') {
       const image = node.children[0];
       return (
-        <Box position="relative" width="100%" paddingBottom="57%" marginBottom="1.618rem">
+        <Box
+          as="figure"
+          position="relative"
+          width="100%"
+          paddingBottom="57%"
+          marginBottom="1.618rem"
+        >
           <NextImage
             src={image.properties.src}
             alt={image.properties.alt}
@@ -35,13 +35,44 @@ const MarkdownComponents = {
 };
 
 const PostPage = ({ postData }: { postData: PostProps }) => {
-  const { title, summary, published, html } = postData;
+  const { title, summary, published, cover, cover_credit, cover_credit_link, cover_alt } = postData;
 
   return (
     <Container size="lg" as="article">
       <Seo title={title} description={summary} />
 
-      <ContentHeader title={title} description={summary} published={formatDate(published)} />
+      <ContentHeader title={title} description={summary} published={formatDate(published)}>
+        {cover && (
+          <Box
+            as="figure"
+            position="relative"
+            width={{ base: '100vw', md: '100%' }}
+            marginTop="600"
+            marginLeft={{ base: '-600', md: '0' }}
+            marginRight={{ base: '-600', md: '0' }}
+          >
+            <NextImage src={cover} alt={cover_alt || title} width={1248} height={702} />
+
+            {cover_credit && (
+              <Text
+                as="figcaption"
+                fontSize="sm"
+                color="gray.600"
+                marginLeft={{ base: '600', xl: 0 }}
+              >
+                <>
+                  Cover image by{` `}
+                  {cover_credit_link ? (
+                    <a href={cover_credit_link}>{cover_credit}</a>
+                  ) : (
+                    { cover_credit }
+                  )}
+                </>
+              </Text>
+            )}
+          </Box>
+        )}
+      </ContentHeader>
 
       <Container size="sm" fontSize="lg" layerStyle="textBlock">
         <ReactMarkdown children={postData.markdown} components={MarkdownComponents} />

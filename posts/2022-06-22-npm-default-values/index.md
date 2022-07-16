@@ -12,7 +12,7 @@ keywords:
   - npm init
 series: Practicals
 slug: 'set-default-values-npm-init'
-cover: './old-boots.jpeg'
+cover: '/assets/old-boots.jpeg'
 cover_credit: 'Oziel Gomez'
 cover_credit_link: 'https://unsplash.com/@ozgomz'
 ---

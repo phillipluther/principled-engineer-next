@@ -34,12 +34,7 @@ const ContentHeader = ({
   ...props
 }: ContentHeaderProps) => {
   return (
-    <Box
-      as={as}
-      paddingBottom={{ base: 600, md: 700 }}
-      marginBottom={{ base: 600, md: 700 }}
-      {...props}
-    >
+    <Box as={as} paddingBottom={{ base: 600, md: 700 }} {...props}>
       <Container size={{ base: 'sm', xl: 'md' }} textAlign="center">
         <Flourish />
 
@@ -68,10 +63,10 @@ const ContentHeader = ({
           </>
         )}
 
-        {children}
-
         {!description && <Flourish flip />}
       </Container>
+
+      {children}
     </Box>
   );
 };

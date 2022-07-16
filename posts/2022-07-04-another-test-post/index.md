@@ -10,13 +10,13 @@ keywords:
   - 4th of july
   - july
 slug: 'four-best-months-july'
-cover: '/images/blog/four.jpeg'
+cover: '/assets/four.jpeg'
 ---
 
 Lorem ipsum and all that jazz. Just wanna make sure this post renders properly and that it has some content for testing purposes.
 
 Let's try an image; not sure everything is setup properly to process images within the markdown.
 
-![Image Alt Text](/images/blog/test-image.jpeg)
+![Image Alt Text](/assets/test-image.jpeg)
 
 Did that work?
