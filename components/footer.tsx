@@ -3,18 +3,18 @@ import PrimaryNav from './primary-nav';
 import SocialMenu from './social-menu';
 
 const Footer = () => (
-  <Box as="footer" bg="gray.100" layerStyle="padded">
+  <Box as="footer" bg="gray.800" color="gray.300" layerStyle="padded">
     <VisuallyHidden as="h2">Site Footer</VisuallyHidden>
     <VStack align="center" spacing="0">
       <Flex as="section">
         <VisuallyHidden as="h3">Supplemental Navigation</VisuallyHidden>
         <HStack>
-          <PrimaryNav />
+          <PrimaryNav onDark />
         </HStack>
       </Flex>
       <Flex as="section" color="brand.700">
         <VisuallyHidden as="h3">Never Miss a Post!</VisuallyHidden>
-        <SocialMenu />
+        <SocialMenu onDark />
       </Flex>
 
       <Container

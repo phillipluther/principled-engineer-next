@@ -12,10 +12,6 @@ export const primaryNavItems: PrimaryNavItemProps[] = [
     href: '/',
   },
   {
-    label: 'Posts',
-    href: '/blog',
-  },
-  {
     label: 'About',
     href: '/about',
   },
@@ -25,7 +21,7 @@ export const primaryNavItems: PrimaryNavItemProps[] = [
   },
 ];
 
-const PrimaryNav = ({ showHome = true, ...props }) => (
+const PrimaryNav = ({ showHome = true, onDark = false, ...props }) => (
   <>
     {primaryNavItems.map(({ label, href }) =>
       !showHome && href === '/' ? null : (
@@ -35,7 +31,7 @@ const PrimaryNav = ({ showHome = true, ...props }) => (
           fontSize="md"
           fontWeight="bold"
           key={label}
-          textStyle="navLink"
+          textStyle={onDark ? 'navLinkDark' : 'navLink'}
           {...props}
         >
           <Link href={href} passHref>

@@ -57,7 +57,9 @@ const theme = extendTheme({
     body: `'Merriweather', serif`,
   },
   space: {
-    // scaling up by 1.618 from 4px; doesn't step on existing Chakra scale < 96
+    // scaling up by 1.618 from 4px; doesn't step on existing Chakra scale < 96;
+    // also moves away from using relative units for spacing (margins/paddings/etc.)
+    // so that text-zoom is preserved as a functionality
     100: '2px',
     200: '4px',
     300: '6px',
@@ -76,26 +78,6 @@ const theme = extendTheme({
     '2xl': '1536px',
   },
   layerStyles: {
-    padded: {
-      padding: {
-        base: '600',
-        md: '700',
-      },
-    },
-    paddedX: {
-      paddingX: {
-        base: '600',
-        md: '700',
-      },
-      paddingY: 0,
-    },
-    paddedY: {
-      paddingX: 0,
-      paddingY: {
-        base: '600',
-        md: '700',
-      },
-    },
     textBlock: {
       lineHeight: '1.618',
       '& p, & h2, & h3, & h4, & h5': {
@@ -108,6 +90,13 @@ const theme = extendTheme({
       color: 'gray.600',
       '&:hover': {
         color: 'gray.900',
+        textDecoration: 'underline',
+      },
+    },
+    navLinkDark: {
+      color: 'gray.200',
+      '&:hover': {
+        color: 'gray.100',
         textDecoration: 'underline',
       },
     },

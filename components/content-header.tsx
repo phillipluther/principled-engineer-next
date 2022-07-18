@@ -35,7 +35,7 @@ const ContentHeader = ({
 }: ContentHeaderProps) => {
   return (
     <Box as={as} paddingBottom={{ base: 600, md: 700 }} {...props}>
-      <Container size={{ base: 'sm', xl: 'md' }} textAlign="center">
+      <Container size={{ base: 'sm', xl: 'lg' }} textAlign="center">
         <Flourish />
 
         <Heading
@@ -52,14 +52,16 @@ const ContentHeader = ({
         {description && (
           <>
             <Flourish flip />
-            <Text
-              fontSize={{ base: 'lg', md: 'xl', xl: '2xl' }}
-              fontStyle="italic"
-              color="gray.600"
-              lineHeight="tall"
-            >
-              {description}
-            </Text>
+            <Container size="md">
+              <Text
+                fontSize={{ base: 'lg', md: 'xl', xl: '2xl' }}
+                fontStyle="italic"
+                color="gray.600"
+                lineHeight="tall"
+              >
+                {description}
+              </Text>
+            </Container>
           </>
         )}
 

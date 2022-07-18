@@ -19,9 +19,13 @@ const PostSummary = ({
   const postLink = `/blog/${slug}`;
 
   return (
-    <Box as="article" layerStyle="textBlock">
+    <Box as="article" layerStyle="summaryBlock">
       <Flex as="header" color="gray.600" direction="column">
-        <Heading as={headingLevel} size="lg" order="2">
+        <Heading
+          as={headingLevel}
+          fontSize={{ base: '2xl', sm: '3xl', md: '2xl', lg: '3xl', xl: '2xl' }}
+          order="2"
+        >
           <NextLink href={postLink}>{title}</NextLink>
         </Heading>
         <Text order="3">{formatDate(published)}</Text>
