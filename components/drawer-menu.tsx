@@ -1,4 +1,5 @@
 import {
+  Box,
   Center,
   IconButton,
   Drawer,
@@ -55,20 +56,37 @@ const DrawerMenu = () => {
             </Heading>
           </DrawerHeader>
 
-          <Center transform="rotate(180deg)" opacity="50%">
-            <NextImage
-              src="/images/divider-flourish-alt.svg"
-              width={266}
-              height={27}
-              alt=""
-              aria-hidden
-            />
-          </Center>
           <DrawerBody padding="0">
             <Padder>
+              <Box marginX="auto" opacity="30%" width="70%" height="64px" position="relative">
+                <NextImage
+                  src="/images/divider-flourish-alt.svg"
+                  layout="fill"
+                  objectFit="contain"
+                  alt=""
+                  aria-hidden
+                />
+              </Box>
+
               <VStack>
                 <PrimaryNav onDark onClick={onClose} fontSize="lg" />
               </VStack>
+              <Box
+                transform="rotate(180deg)"
+                marginX="auto"
+                opacity="30%"
+                width="70%"
+                height="64px"
+                position="relative"
+              >
+                <NextImage
+                  src="/images/divider-flourish-alt.svg"
+                  layout="fill"
+                  objectFit="contain"
+                  alt=""
+                  aria-hidden
+                />
+              </Box>
 
               <Center marginTop="500">
                 <SocialMenu onDark />
