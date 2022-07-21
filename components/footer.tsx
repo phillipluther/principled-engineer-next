@@ -8,7 +8,7 @@ const Footer = () => (
     <VStack align="center" spacing="0">
       <Flex as="section">
         <VisuallyHidden as="h3">Supplemental Navigation</VisuallyHidden>
-        <HStack>
+        <HStack marginTop="500">
           <PrimaryNav onDark />
         </HStack>
       </Flex>

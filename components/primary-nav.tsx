@@ -27,7 +27,8 @@ const PrimaryNav = ({ showHome = true, onDark = false, ...props }) => (
       !showHome && href === '/' ? null : (
         <LinkBox
           paddingX="400"
-          paddingY="500"
+          lineHeight="48px"
+          whiteSpace="nowrap"
           fontSize="md"
           fontWeight="bold"
           key={label}
