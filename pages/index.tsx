@@ -13,25 +13,23 @@ const AllPosts = ({ postsData }: { postsData: PostProps[] }) => {
   return (
     <>
       <Seo title={title} description={description} />
-      <ContentHeader title={title} description={description} />
 
-      <Container as="section" size="lg">
-        <Wrap spacing={{ base: 600, xl: 700 }}>
-          {postsData.map((postData) => (
-            <WrapItem
-              as="li"
-              key={postData.slug}
-              width={{
-                base: '100%',
-                md: `calc(50% - ${theme.space['600']})`,
-                xl: `calc(33% - ${theme.space['700']})`,
-              }}
-            >
-              <PostSummary {...postData} />
-            </WrapItem>
-          ))}
-        </Wrap>
-      </Container>
+      <Wrap spacing={{ base: 500, sm: 600, lg: 700 }}>
+        {postsData.map((postData) => (
+          <WrapItem
+            as="li"
+            key={postData.slug}
+            width={{
+              base: '100%',
+              md: `calc(50% - ${theme.space['600']})`,
+              lg: `calc(50% - ${theme.space['700']})`,
+              xl: `calc(33.333% - ${theme.space['700']})`,
+            }}
+          >
+            <PostSummary {...postData} />
+          </WrapItem>
+        ))}
+      </Wrap>
     </>
   );
 };

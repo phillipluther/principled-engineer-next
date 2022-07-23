@@ -1,6 +1,11 @@
 import { extendTheme } from '@chakra-ui/react';
 
 const theme = extendTheme({
+  global: {
+    body: {
+      lineHeight: 1.6,
+    },
+  },
   colors: {
     gray: {
       100: '#FFFFEF',

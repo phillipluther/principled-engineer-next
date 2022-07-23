@@ -1,4 +1,4 @@
-import { Box, Flex, Heading, Text, VisuallyHidden } from '@chakra-ui/react';
+import { Box, Flex, Heading, Text, LinkBox, LinkOverlay, VisuallyHidden } from '@chakra-ui/react';
 import NextImage from 'next/image';
 import NextLink from 'next/link';
 import { PostProps } from '../lib/posts';
@@ -19,34 +19,30 @@ const PostSummary = ({
   const postLink = `/blog/${slug}`;
 
   return (
-    <Box as="article" layerStyle="summaryBlock">
-      <Flex as="header" color="gray.600" direction="column">
+    <LinkBox as="article" display="flex" flexDirection="column">
+      <Box as="header" padding="500" order="2">
         <Heading
           as={headingLevel}
-          fontSize={{ base: '2xl', sm: '3xl', md: '2xl', lg: '3xl', xl: '2xl' }}
-          order="2"
+          fontSize={{ base: '2xl' }}
+          marginBottom="4"
+          // fontSize={{ base: '2xl', sm: '3xl', md: '2xl', lg: '3xl', xl: '2xl' }}
         >
           <NextLink href={postLink}>{title}</NextLink>
         </Heading>
-        <Text order="3">{formatDate(published)}</Text>
-
-        <NextLink href={postLink}>
-          <a tabIndex={-1}>
-            <NextImage src={cover} width={752} height={423} alt="" aria-hidden />
-          </a>
-        </NextLink>
-      </Flex>
-      <Box as="section" color="gray.700">
+        <Text color="gray.600">{formatDate(published)}</Text>
+      </Box>
+      <Box as="section" padding="500" paddingTop="0" order="3">
         <Text>{summary}</Text>
       </Box>
-      <Box as="footer">
-        <NextLink href={postLink}>
-          <a>
-            Read More <VisuallyHidden>: {title}</VisuallyHidden>
-          </a>
-        </NextLink>
-      </Box>
-    </Box>
+
+      {/* <Divider marginY="400" order="4" /> */}
+
+      <NextImage src={cover} width={720} height={405} alt="" aria-hidden />
+
+      <NextLink href={postLink}>
+        <LinkOverlay />
+      </NextLink>
+    </LinkBox>
   );
 };
 

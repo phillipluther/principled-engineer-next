@@ -58,7 +58,7 @@ const DrawerMenu = () => {
 
           <DrawerBody padding="0">
             <Padder>
-              <Box marginX="auto" opacity="30%" width="70%" height="64px" position="relative">
+              <Box marginX="auto" opacity="30%" width="60%" height="56px" position="relative">
                 <NextImage
                   src="/images/divider-flourish-alt.svg"
                   layout="fill"
@@ -75,8 +75,8 @@ const DrawerMenu = () => {
                 transform="rotate(180deg)"
                 marginX="auto"
                 opacity="30%"
-                width="70%"
-                height="64px"
+                width="60%"
+                height="56px"
                 position="relative"
               >
                 <NextImage

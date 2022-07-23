@@ -1,5 +1,5 @@
 import { LinkBox, LinkOverlay } from '@chakra-ui/react';
-import Link from 'next/link';
+import NextLink from 'next/link';
 
 export type PrimaryNavItemProps = {
   label: string;
@@ -35,9 +35,9 @@ const PrimaryNav = ({ showHome = true, onDark = false, ...props }) => (
           textStyle={onDark ? 'navLinkDark' : 'navLink'}
           {...props}
         >
-          <Link href={href} passHref>
+          <NextLink href={href} passHref>
             <LinkOverlay>{label}</LinkOverlay>
-          </Link>
+          </NextLink>
         </LinkBox>
       ),
     )}

@@ -15,7 +15,7 @@ const Flourish = ({ flip = false }) => (
   <Box
     maxWidth="518px"
     minWidth="200px"
-    width="75%"
+    width="100%"
     marginY={{ base: 500, md: 600 }}
     marginX="auto"
     opacity="0.6"

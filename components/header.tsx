@@ -1,4 +1,4 @@
-import { Box, Flex, HStack, VStack, VisuallyHidden, useMediaQuery } from '@chakra-ui/react';
+import { Box, Text, Flex, HStack, VStack, VisuallyHidden, useMediaQuery } from '@chakra-ui/react';
 import NextImage from 'next/image';
 import NextLink from 'next/link';
 import Padder from './padder';
@@ -27,8 +27,9 @@ const Header = () => {
       width="100%"
       maxWidth={responsiveHeaderWidth}
       marginX="auto"
+      position={{ base: 'relative', lg: 'fixed' }}
     >
-      {!isMediumWidth && <SkipNavLink label="Skip to Content" />}
+      {isMediumWidth && <SkipNavLink label="Skip to Content" />}
 
       <Flex wrap="wrap" justify="space-between">
         <Box as="h1" maxWidth={{ base: '180px', lg: '100%' }}>
@@ -56,6 +57,15 @@ const Header = () => {
         )}
         {isLargeWidth && (
           <VStack width="100%">
+            <Text
+              marginTop="500"
+              fontSize={{ base: 'xs', xl: 'sm' }}
+              fontWeight="bold"
+              fontFamily={theme.fonts.heading}
+              color="gray.500"
+            >
+              Code well. Code good.
+            </Text>
             <Box width="100%" height="64px" position="relative" opacity="50%">
               <NextImage src="/images/divider-flourish-alt.svg" layout="fill" objectFit="contain" />
             </Box>

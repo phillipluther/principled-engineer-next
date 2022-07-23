@@ -18,6 +18,11 @@ const Layout = ({ children }) => {
           lg: `calc(100vw - ${responsiveHeaderWidth.lg})`,
           xl: `calc(100vw - ${responsiveHeaderWidth.xl})`,
         }}
+        marginLeft={{
+          base: 0,
+          lg: responsiveHeaderWidth.lg,
+          xl: responsiveHeaderWidth.xl,
+        }}
       >
         <Padder as="main">
           <SkipNavTarget />
