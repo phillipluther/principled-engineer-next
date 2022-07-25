@@ -1,5 +1,3 @@
-import { Box } from '@chakra-ui/react';
-
 export type PadderProps = {
   as?: keyof JSX.IntrinsicElements;
   noX?: boolean;
@@ -13,7 +11,7 @@ export type PadderProps = {
 };
 
 const Padder = ({
-  as,
+  as: Tag = 'div',
   noX,
   noY,
   noTop,
@@ -29,18 +27,7 @@ const Padder = ({
     lg: 700,
   };
 
-  return (
-    <Box
-      as={as}
-      paddingTop={noY || noTop ? 0 : responsivePadding}
-      paddingBottom={noY || noBottom ? 0 : responsivePadding}
-      paddingRight={noX || noRight ? 0 : responsivePadding}
-      paddingLeft={noX || noLeft ? 0 : responsivePadding}
-      {...props}
-    >
-      {children}
-    </Box>
-  );
+  return <Tag {...props}>{children}</Tag>;
 };
 
 export default Padder;
