@@ -1,16 +1,13 @@
-import {
-  SkipNavLink as ChakraSkipNavLink,
-  SkipNavContent as ChakraSkipNavContent,
-} from '@chakra-ui/skip-nav';
+import { VisuallyHidden } from 'react-aria';
 
 export const skipNavId = 'skip-nav';
 
 const SkipNavLink = ({ id = skipNavId, label }: { id?: string; label: string }) => (
-  <ChakraSkipNavLink id={id} zIndex="100">
+  <VisuallyHidden id={id} isFocusable>
     {label}
-  </ChakraSkipNavLink>
+  </VisuallyHidden>
 );
 
-const SkipNavTarget = ({ id = skipNavId }: { id?: string }) => <ChakraSkipNavContent id={id} />;
+const SkipNavTarget = ({ id = skipNavId }: { id?: string }) => <a id={id} />;
 
 export { SkipNavLink, SkipNavTarget };

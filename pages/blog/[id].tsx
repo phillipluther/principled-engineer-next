@@ -1,4 +1,3 @@
-import { Box, Container, Heading, Text } from '@chakra-ui/react';
 import ReactMarkdown from 'react-markdown';
 import NextImage from 'next/image';
 import { PostProps, getPostPathParams, getPostData } from '../../lib/posts';
@@ -13,20 +12,14 @@ const MarkdownComponents = {
     if (node.children[0].tagName === 'img') {
       const image = node.children[0];
       return (
-        <Box
-          as="figure"
-          position="relative"
-          width="100%"
-          paddingBottom="57%"
-          marginBottom="1.618rem"
-        >
+        <figure>
           <NextImage
             src={image.properties.src}
             alt={image.properties.alt}
             layout="fill"
             objectFit="cover"
           />
-        </Box>
+        </figure>
       );
     }
 
@@ -38,28 +31,16 @@ const PostPage = ({ postData }: { postData: PostProps }) => {
   const { title, summary, published, cover, cover_credit, cover_credit_link, cover_alt } = postData;
 
   return (
-    <Container size="lg" as="article">
+    <article>
       <Seo title={title} description={summary} />
 
       <ContentHeader title={title} description={summary} published={formatDate(published)}>
         {cover && (
-          <Box
-            as="figure"
-            position="relative"
-            width={{ base: '100vw', md: '100%' }}
-            marginTop="600"
-            marginLeft={{ base: '-600', md: '0' }}
-            marginRight={{ base: '-600', md: '0' }}
-          >
+          <figure>
             <NextImage src={cover} alt={cover_alt || title} width={1248} height={702} />
 
             {cover_credit && (
-              <Text
-                as="figcaption"
-                fontSize="sm"
-                color="gray.600"
-                marginLeft={{ base: '600', xl: 0 }}
-              >
+              <figcaption>
                 <>
                   Cover image by{` `}
                   {cover_credit_link ? (
@@ -68,16 +49,16 @@ const PostPage = ({ postData }: { postData: PostProps }) => {
                     { cover_credit }
                   )}
                 </>
-              </Text>
+              </figcaption>
             )}
-          </Box>
+          </figure>
         )}
       </ContentHeader>
 
-      <Container size="sm" fontSize="lg" layerStyle="textBlock">
+      <div>
         <ReactMarkdown children={postData.markdown} components={MarkdownComponents} />
-      </Container>
-    </Container>
+      </div>
+    </article>
   );
 };
 

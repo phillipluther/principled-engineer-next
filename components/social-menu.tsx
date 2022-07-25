@@ -1,5 +1,4 @@
 import { BsTwitter, BsEnvelopeFill, BsRssFill } from 'react-icons/bs';
-import { HStack, IconButton } from '@chakra-ui/react';
 import { PrimaryNavItemProps } from './primary-nav';
 
 export type SocialMenuItemProps = PrimaryNavItemProps & {
@@ -21,22 +20,15 @@ export const socialItems: SocialMenuItemProps[] = [
 ];
 
 const SocialMenu = ({ onDark = false }) => (
-  <HStack spacing="2">
+  <ul>
     {socialItems.map(({ label, href, icon: Icon }) => (
-      <IconButton
-        as="a"
-        icon={<Icon />}
-        aria-label={label}
-        variant="link"
-        fontSize="24px"
-        padding="12px"
-        href={href}
-        key={href}
-        color={onDark ? 'gray.200' : 'gray.600'}
-        _hover={{ color: onDark ? 'gray.100' : 'gray.900' }}
-      />
+      <li key={href}>
+        <a href={href} title={label}>
+          <Icon aria-label={label} />
+        </a>
+      </li>
     ))}
-  </HStack>
+  </ul>
 );
 
 export default SocialMenu;
