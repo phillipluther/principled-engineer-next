@@ -21,12 +21,6 @@ const Padder = ({
   children,
   ...props
 }: PadderProps) => {
-  const responsivePadding = {
-    base: 500,
-    sm: 600,
-    lg: 700,
-  };
-
   return <Tag {...props}>{children}</Tag>;
 };
 

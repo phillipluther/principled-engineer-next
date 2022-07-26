@@ -4,6 +4,8 @@ import '@fontsource/merriweather/700.css';
 import '@fontsource/lora/500.css';
 import Layout from '../components/layout';
 
+import 'reset.css';
+
 const App = ({ Component, pageProps }) => {
   return (
     <Layout>
