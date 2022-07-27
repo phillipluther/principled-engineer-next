@@ -1,24 +1,40 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import NextImage from 'next/image';
 import NextLink from 'next/link';
 import { VisuallyHidden } from 'react-aria';
 import classnames from 'classnames';
-// import DrawerMenu from './drawer-menu';
+import Drawer from '../drawer';
 import PrimaryNav from '../primary-nav';
 import SocialMenu from '../social-menu';
 import { SkipNavLink } from '../skip-nav';
+import { OverlayContainer, OverlayProvider, useButton } from 'react-aria';
+import { useOverlayTriggerState } from 'react-stately';
 
 import styles from './header.module.css';
 import { padded } from '../styles.module.css';
 
-export const responsiveHeaderWidth = {
-  base: '100%',
-  lg: '240px',
-  xl: '288px',
-};
-
 const Header = () => {
   const [isMenuOpen, toggleMenu] = useState(false);
+  const state = useOverlayTriggerState({});
+  const openButtonRef = useRef();
+  const closeButtonRef = useRef();
+
+  // useButton ensures that focus management is handled correctly,
+  // across all browsers. Focus is restored to the button once the
+  // dialog closes.
+  const { buttonProps: openButtonProps } = useButton(
+    {
+      onPress: () => state.open(),
+    },
+    openButtonRef,
+  );
+
+  const { buttonProps: closeButtonProps } = useButton(
+    {
+      onPress: () => state.close(),
+    },
+    closeButtonRef,
+  );
 
   return (
     <header className={classnames(padded, styles.header)}>
@@ -49,16 +65,20 @@ const Header = () => {
         <VisuallyHidden elementType="p">Code good. Code well.</VisuallyHidden>
       </div>
 
-      <button type="button" className={styles.menuButton} onClick={() => toggleMenu(!isMenuOpen)}>
+      <button type="button" className={styles.menuButton} {...openButtonProps} ref={openButtonRef}>
         <span role="presentation" className={styles.hamburger} />
-        <VisuallyHidden>{`${isMenuOpen ? 'Hide' : 'Show'} Navigation`}</VisuallyHidden>
+        <VisuallyHidden>{`${state.isOpen ? 'Hide' : 'Show'} Navigation`}</VisuallyHidden>
       </button>
 
-      {isMenuOpen && (
-        <nav>
-          <PrimaryNav />
-          <SocialMenu />
-        </nav>
+      {state.isOpen && (
+        <OverlayContainer>
+          <Drawer title="Navigation" isOpen onClose={state.close} isDismissable>
+            <nav>
+              <PrimaryNav />
+              <SocialMenu />
+            </nav>
+          </Drawer>
+        </OverlayContainer>
       )}
     </header>
   );

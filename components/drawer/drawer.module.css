@@ -1,0 +1,25 @@
+.underlay {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  background: #292919;
+  color: #c2c2b2;
+}
+
+.overlay a {
+  color: inherit;
+}
