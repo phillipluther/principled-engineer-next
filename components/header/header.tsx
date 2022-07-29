@@ -72,9 +72,9 @@ const Header = () => {
       {state.isOpen && (
         <OverlayContainer>
           <Drawer title="Navigation Menu" isOpen onClose={state.close} isDismissable>
-            <nav>
-              <PrimaryNav />
-              <SocialMenu />
+            <nav className={styles.navWrapper}>
+              <PrimaryNav className={styles.nav} />
+              <SocialMenu className={styles.social} />
             </nav>
           </Drawer>
         </OverlayContainer>

@@ -64,3 +64,18 @@
 .hamburger::after {
   transform: translate3d(0, 4px, 0);
 }
+
+.navWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.navWrapper ul {
+  margin: 1rem;
+}
+
+.nav li {
+  width: 100%;
+}

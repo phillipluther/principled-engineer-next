@@ -1,8 +1,16 @@
 import { BsTwitter, BsEnvelopeFill, BsRssFill } from 'react-icons/bs';
-import { PrimaryNavItemProps } from './primary-nav';
+import classnames from 'classnames';
+import { PrimaryNavItemProps } from '../primary-nav';
+import styles from './social-menu.module.css';
 
 export type SocialMenuItemProps = PrimaryNavItemProps & {
   icon: React.FC;
+};
+
+export type SocialMenuProps = {
+  onDark?: boolean;
+  className?: string;
+  [key: string]: any;
 };
 
 export const socialItems: SocialMenuItemProps[] = [
@@ -19,11 +27,11 @@ export const socialItems: SocialMenuItemProps[] = [
   { label: 'Subscribe with RSS', href: '/feed.xml', icon: BsRssFill },
 ];
 
-const SocialMenu = ({ onDark = false }) => (
-  <ul>
+const SocialMenu = ({ onDark = false, className, ...props }) => (
+  <ul className={classnames(styles.wrapper, className)}>
     {socialItems.map(({ label, href, icon: Icon }) => (
-      <li key={href}>
-        <a href={href} title={label}>
+      <li className={styles.item} key={href}>
+        <a href={href} title={label} className={styles.link}>
           <Icon aria-label={label} />
         </a>
       </li>

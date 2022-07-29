@@ -1,4 +1,12 @@
 import NextLink from 'next/link';
+import classnames from 'classnames';
+import styles from './primary-nav.module.css';
+
+export type PrimaryNavProps = {
+  showHome?: boolean;
+  className?: string;
+  [key: string]: any;
+};
 
 export type PrimaryNavItemProps = {
   label: string;
@@ -20,12 +28,14 @@ export const primaryNavItems: PrimaryNavItemProps[] = [
   },
 ];
 
-const PrimaryNav = ({ showHome = true, onDark = false, ...props }) => (
-  <ul>
+const PrimaryNav = ({ showHome = true, className, ...props }) => (
+  <ul className={classnames(styles.wrapper, className)}>
     {primaryNavItems.map(({ label, href }) =>
       !showHome && href === '/' ? null : (
-        <li key={href}>
-          <NextLink href={href}>{label}</NextLink>
+        <li className={styles.item} key={href}>
+          <NextLink href={href}>
+            <a className={styles.link}>{label}</a>
+          </NextLink>
         </li>
       ),
     )}
