@@ -32,7 +32,9 @@ const PostSummary = ({
       <section>
         <p>{summary}</p>
         <NextLink href={postLink}>
-          <VisuallyHidden>Read More: {title}</VisuallyHidden>
+          <a>
+            <VisuallyHidden>Read More: {title}</VisuallyHidden>
+          </a>
         </NextLink>
       </section>
     </article>

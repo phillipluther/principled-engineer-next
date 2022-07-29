@@ -18,8 +18,16 @@
   height: 100vh;
   background: #292919;
   color: #c2c2b2;
+  width: 75%;
+  min-width: 240px;
 }
 
 .overlay a {
   color: inherit;
+}
+
+.heading {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  margin: 0 0 1rem;
 }
