@@ -1,46 +1,70 @@
-import { useRef } from 'react';
-import { FocusScope, useDialog, useModal, useOverlay, usePreventScroll } from 'react-aria';
+import { MouseEventHandler, useRef } from 'react';
+import {
+  FocusScope,
+  VisuallyHidden,
+  useDialog,
+  useModal,
+  useOverlay,
+  usePreventScroll,
+} from 'react-aria';
 import classnames from 'classnames';
 import styles from './drawer.module.css';
-import { padded } from '../styles.module.css';
+import { iconButton, padded } from '../style-utils.module.css';
 
 export type DrawerProps = {
-  title: string;
+  title: React.ReactNode;
+  className?: string;
   closeLabel?: string;
   headingTag?: 'h2' | 'h3' | 'h4' | 'h5';
+  onClose?: MouseEventHandler<HTMLButtonElement>;
   children: React.ReactNode;
   [key: string]: any;
 };
 
 const Drawer = (props: DrawerProps) => {
-  let { title, children } = props;
+  const {
+    title,
+    className,
+    closeLabel = 'Close Menu',
+    onClose,
+    children,
+    headingTag: HeadingTag = 'h2',
+  } = props;
 
-  // Handle interacting outside the dialog and pressing
-  // the Escape key to close the modal.
-  let ref = useRef();
-  let { overlayProps, underlayProps } = useOverlay(props, ref);
+  const ref = useRef();
+  const { overlayProps, underlayProps } = useOverlay(props, ref);
+  const { dialogProps, titleProps } = useDialog(props, ref);
+  const { modalProps } = useModal();
 
-  // Prevent scrolling while the modal is open, and hide content
-  // outside the modal from screen readers.
   usePreventScroll();
-  let { modalProps } = useModal();
-
-  // Get props for the dialog and its title
-  let { dialogProps, titleProps } = useDialog(props, ref);
 
   return (
     <div className={styles.underlay} {...underlayProps}>
       <FocusScope contain restoreFocus autoFocus>
         <section
-          className={classnames(padded, styles.overlay)}
+          className={classnames(padded, styles.overlay, className)}
           {...overlayProps}
           {...dialogProps}
           {...modalProps}
           ref={ref}
         >
-          <h2 className={styles.heading} {...titleProps}>
-            {title}
-          </h2>
+          <header className={styles.header}>
+            <HeadingTag className={styles.heading} {...titleProps}>
+              {title}
+            </HeadingTag>
+
+            {onClose && (
+              <button
+                type="button"
+                className={classnames(iconButton, styles.close)}
+                onClick={onClose}
+              >
+                <VisuallyHidden>{closeLabel}</VisuallyHidden>
+                <span className={styles.closeX} role="presentation" />
+              </button>
+            )}
+          </header>
+
           {children}
         </section>
       </FocusScope>

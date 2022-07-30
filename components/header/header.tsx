@@ -10,7 +10,21 @@ import SocialMenu from '../social-menu';
 import { SkipNavLink } from '../skip-nav';
 
 import styles from './header.module.css';
-import { displayFont, padded } from '../styles.module.css';
+import { flipped, iconButton, padded } from '../style-utils.module.css';
+
+const NavTitle = () => (
+  <span className={styles.navTitle}>
+    <NextImage
+      src="/images/favicon.png"
+      alt=""
+      aria-hidden
+      width={48}
+      height={48}
+      className={styles.badge}
+    />
+    <span className={styles.navText}>The Principled Engineer</span>
+  </span>
+);
 
 const Header = () => {
   let state = useOverlayTriggerState({});
@@ -64,16 +78,38 @@ const Header = () => {
         <VisuallyHidden elementType="p">Code good. Code well.</VisuallyHidden>
       </div>
 
-      <button type="button" className={styles.menuButton} {...openButtonProps} ref={openButtonRef}>
+      <button
+        type="button"
+        className={classnames(iconButton, styles.menuButton)}
+        {...openButtonProps}
+        ref={openButtonRef}
+      >
         <span className={styles.hamburger} role="presentation" />
         <VisuallyHidden>Show Navigation</VisuallyHidden>
       </button>
 
       {state.isOpen && (
         <OverlayContainer>
-          <Drawer title="Navigation Menu" isOpen onClose={state.close} isDismissable>
+          <Drawer title={<NavTitle />} isOpen onClose={state.close} isDismissable>
             <nav className={styles.navWrapper}>
+              <NextImage
+                src="/images/divider-flourish-alt.svg"
+                width={130}
+                height={12}
+                role="presentation"
+                className={styles.flourish}
+              />
+
               <PrimaryNav className={styles.nav} />
+
+              <NextImage
+                src="/images/divider-flourish-alt.svg"
+                width={130}
+                height={12}
+                role="presentation"
+                className={classnames(flipped, styles.flourish)}
+              />
+
               <SocialMenu className={styles.social} />
             </nav>
           </Drawer>

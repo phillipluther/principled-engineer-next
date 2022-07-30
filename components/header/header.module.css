@@ -22,12 +22,7 @@
 }
 
 .menuButton {
-  width: 56px;
-  height: 56px;
-  border-radius: 3px;
-  border: 0;
   background: #c2c2b2;
-  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
   position: absolute;
   top: 50%;
   right: 24px;
@@ -65,11 +60,18 @@
   transform: translate3d(0, 4px, 0);
 }
 
+.navTitle {
+  display: flex;
+  align-items: center;
+  margin-left: -14px;
+}
+
 .navWrapper {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  padding: 24px 0;
 }
 
 .navWrapper ul {
@@ -78,4 +80,16 @@
 
 .nav li {
   width: 100%;
+}
+
+.social {
+  padding-top: 12px;
+}
+
+.badge {
+  opacity: 0.7;
+}
+
+.flourish {
+  opacity: 0.5;
 }

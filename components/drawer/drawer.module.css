@@ -20,14 +20,49 @@
   color: #c2c2b2;
   width: 75%;
   min-width: 240px;
+  max-width: 320px;
 }
 
 .overlay a {
   color: inherit;
 }
 
-.heading {
-  font-size: 0.8rem;
-  text-transform: uppercase;
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   margin: 0 0 1rem;
+}
+
+.heading {
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.close {
+  background: #474737;
+  margin-right: -8px;
+}
+
+.closeX {
+  position: relative;
+  width: 50%;
+  margin: 0 auto;
+  transform: rotate(45deg);
+}
+
+.closeX,
+.closeX::after {
+  display: block;
+  height: 0;
+  border: 2px solid #e0e0d0;
+}
+
+.closeX::after {
+  content: '';
+  position: absolute;
+  left: -2px;
+  top: -2px;
+  width: 100%;
+  transform: rotate(-90deg);
 }
