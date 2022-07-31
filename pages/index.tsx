@@ -1,6 +1,6 @@
 import { getAllPostData, PostProps } from '../lib/posts';
 import Seo from '../components/seo';
-import PostSummary from '../components/post-summary';
+import PostList from '../components/post-list';
 
 const title = 'The Principled Engineer: A Blog';
 const description =
@@ -11,13 +11,7 @@ const AllPosts = ({ postsData }: { postsData: PostProps[] }) => {
     <>
       <Seo title={title} description={description} />
 
-      <ul>
-        {postsData.map((postData) => (
-          <li key={postData.slug}>
-            <PostSummary {...postData} />
-          </li>
-        ))}
-      </ul>
+      <PostList postsData={postsData} title="All Posts" />
     </>
   );
 };

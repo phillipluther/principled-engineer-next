@@ -1,3 +1,29 @@
+:root {
+  --font-size-0: 0.8rem;
+  --font-size-1: 1rem;
+  --font-size-2: 1.25rem;
+  --font-size-3: 1.563rem;
+  --font-size-4: 1.953rem;
+  --font-size-5: 2.441rem;
+  --font-size-6: 3.052rem;
+  --font-size-7: 3.815rem;
+  --font-size-8: 4.768rem;
+  --font-size-9: 5.96rem;
+
+  --line-height-tight: 1.25;
+  --line-height-mid: 1.563;
+  --line-height-loose: 1.953;
+}
+
 * {
   box-sizing: border-box;
+}
+
+html,
+body {
+  background: #0a0a00;
+}
+
+body {
+  font-family: 'Merriweather', serif;
 }
