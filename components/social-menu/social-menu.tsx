@@ -27,7 +27,7 @@ export const socialItems: SocialMenuItemProps[] = [
   { label: 'Subscribe with RSS', href: '/feed.xml', icon: BsRssFill },
 ];
 
-const SocialMenu = ({ onDark = false, className, ...props }) => (
+const SocialMenu = ({ onDark = false, className, ...props }: SocialMenuProps) => (
   <ul className={classnames(styles.wrapper, className)}>
     {socialItems.map(({ label, href, icon: Icon }) => (
       <li className={styles.item} key={href}>

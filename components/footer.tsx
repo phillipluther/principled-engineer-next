@@ -10,7 +10,7 @@ const Footer = () => (
     <section>
       <VisuallyHidden elementType="h3">Supplemental Navigation</VisuallyHidden>
       <nav>
-        <PrimaryNav onDark />
+        <PrimaryNav />
       </nav>
     </section>
 

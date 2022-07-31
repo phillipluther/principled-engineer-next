@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import NextImage from 'next/image';
 import NextLink from 'next/link';
 import classnames from 'classnames';
-import { VisuallyHidden, OverlayContainer, useButton } from 'react-aria';
+import { VisuallyHidden, OverlayContainer, useButton, useIsSSR } from 'react-aria';
 import { useOverlayTriggerState } from 'react-stately';
 import Drawer from '../drawer';
 import PrimaryNav from '../primary-nav';
@@ -27,21 +27,19 @@ const NavTitle = () => (
 );
 
 const Header = () => {
-  let state = useOverlayTriggerState({});
-  let openButtonRef = useRef();
-  let closeButtonRef = useRef();
+  const state = useOverlayTriggerState({});
+  const isSsr = useIsSSR();
+  const openButtonRef = useRef();
+  const closeButtonRef = useRef();
 
-  // useButton ensures that focus management is handled correctly,
-  // across all browsers. Focus is restored to the button once the
-  // dialog closes.
-  let { buttonProps: openButtonProps } = useButton(
+  const { buttonProps: openButtonProps } = useButton(
     {
       onPress: () => state.open(),
     },
     openButtonRef,
   );
 
-  let { buttonProps: closeButtonProps } = useButton(
+  const { buttonProps: closeButtonProps } = useButton(
     {
       onPress: () => state.close(),
     },
@@ -88,9 +86,9 @@ const Header = () => {
         <VisuallyHidden>Show Navigation</VisuallyHidden>
       </button>
 
-      {state.isOpen && (
+      {!isSsr && (
         <OverlayContainer>
-          <Drawer title={<NavTitle />} isOpen onClose={state.close} isDismissable>
+          <Drawer title={<NavTitle />} isOpen={state.isOpen} onClose={state.close} isDismissable>
             <nav className={styles.navWrapper}>
               <NextImage
                 src="/images/divider-flourish-alt.svg"
@@ -100,7 +98,7 @@ const Header = () => {
                 className={styles.flourish}
               />
 
-              <PrimaryNav className={styles.nav} />
+              <PrimaryNav className={styles.nav} onClick={state.close} />
 
               <NextImage
                 src="/images/divider-flourish-alt.svg"

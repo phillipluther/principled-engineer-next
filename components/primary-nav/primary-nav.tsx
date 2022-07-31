@@ -28,8 +28,8 @@ export const primaryNavItems: PrimaryNavItemProps[] = [
   },
 ];
 
-const PrimaryNav = ({ showHome = true, className, ...props }) => (
-  <ul className={classnames(styles.wrapper, className)}>
+const PrimaryNav = ({ showHome = true, className, ...props }: PrimaryNavProps) => (
+  <ul className={classnames(styles.wrapper, className)} {...props}>
     {primaryNavItems.map(({ label, href }) =>
       !showHome && href === '/' ? null : (
         <li className={styles.item} key={href}>
