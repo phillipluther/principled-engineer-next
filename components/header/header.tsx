@@ -1,9 +1,8 @@
-import { useRef } from 'react';
+import { useState, useRef } from 'react';
 import NextImage from 'next/image';
 import NextLink from 'next/link';
 import classnames from 'classnames';
-import { VisuallyHidden, OverlayContainer, useButton, useIsSSR } from 'react-aria';
-import { useOverlayTriggerState } from 'react-stately';
+import { VisuallyHidden } from 'react-aria';
 import Drawer from '../drawer';
 import PrimaryNav from '../primary-nav';
 import SocialMenu from '../social-menu';
@@ -27,24 +26,8 @@ const NavTitle = () => (
 );
 
 const Header = () => {
-  const state = useOverlayTriggerState({});
-  const isSsr = useIsSSR();
-  const openButtonRef = useRef();
-  const closeButtonRef = useRef();
-
-  const { buttonProps: openButtonProps } = useButton(
-    {
-      onPress: () => state.open(),
-    },
-    openButtonRef,
-  );
-
-  const { buttonProps: closeButtonProps } = useButton(
-    {
-      onPress: () => state.close(),
-    },
-    closeButtonRef,
-  );
+  const buttonRef = useRef();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <header className={classnames(padded, styles.header)}>
@@ -79,39 +62,37 @@ const Header = () => {
       <button
         type="button"
         className={classnames(iconButton, styles.menuButton)}
-        {...openButtonProps}
-        ref={openButtonRef}
+        ref={buttonRef}
+        onClick={() => setIsMenuOpen(true)}
       >
         <span className={styles.hamburger} role="presentation" />
         <VisuallyHidden>Show Navigation</VisuallyHidden>
       </button>
 
-      {!isSsr && (
-        <OverlayContainer>
-          <Drawer title={<NavTitle />} isOpen={state.isOpen} onClose={state.close} isDismissable>
-            <nav className={styles.navWrapper}>
-              <NextImage
-                src="/images/divider-flourish-alt.svg"
-                width={130}
-                height={12}
-                role="presentation"
-                className={styles.flourish}
-              />
+      {isMenuOpen && (
+        <Drawer title={<NavTitle />} isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)}>
+          <nav className={styles.navWrapper}>
+            <NextImage
+              src="/images/divider-flourish-alt.svg"
+              width={130}
+              height={12}
+              role="presentation"
+              className={styles.flourish}
+            />
 
-              <PrimaryNav className={styles.nav} onClick={state.close} />
+            <PrimaryNav className={styles.nav} onClick={() => setIsMenuOpen(false)} />
 
-              <NextImage
-                src="/images/divider-flourish-alt.svg"
-                width={130}
-                height={12}
-                role="presentation"
-                className={classnames(flipped, styles.flourish)}
-              />
+            <NextImage
+              src="/images/divider-flourish-alt.svg"
+              width={130}
+              height={12}
+              role="presentation"
+              className={classnames(flipped, styles.flourish)}
+            />
 
-              <SocialMenu className={styles.social} />
-            </nav>
-          </Drawer>
-        </OverlayContainer>
+            <SocialMenu className={styles.social} />
+          </nav>
+        </Drawer>
       )}
     </header>
   );
