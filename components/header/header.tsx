@@ -32,7 +32,6 @@ const Header = () => {
   return (
     <header className={classnames(padded, styles.header)}>
       <SkipNavLink label="Skip to Content" />
-
       <h1 className={styles.logo}>
         <NextLink href="/">
           <a>
@@ -47,7 +46,6 @@ const Header = () => {
           </a>
         </NextLink>
       </h1>
-
       <div className={styles.subhead}>
         <NextImage
           src="/images/code-good-code-well.svg"
@@ -58,7 +56,6 @@ const Header = () => {
         />
         <VisuallyHidden elementType="p">Code good. Code well.</VisuallyHidden>
       </div>
-
       <button
         type="button"
         className={classnames(iconButton, styles.menuButton)}
@@ -68,32 +65,29 @@ const Header = () => {
         <span className={styles.hamburger} role="presentation" />
         <VisuallyHidden>Show Navigation</VisuallyHidden>
       </button>
+      <Drawer title={<NavTitle />} isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)}>
+        <nav className={styles.navWrapper}>
+          <NextImage
+            src="/images/divider-flourish-alt.svg"
+            width={130}
+            height={12}
+            role="presentation"
+            className={styles.flourish}
+          />
 
-      {isMenuOpen && (
-        <Drawer title={<NavTitle />} isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)}>
-          <nav className={styles.navWrapper}>
-            <NextImage
-              src="/images/divider-flourish-alt.svg"
-              width={130}
-              height={12}
-              role="presentation"
-              className={styles.flourish}
-            />
+          <PrimaryNav className={styles.nav} onClick={() => setIsMenuOpen(false)} />
 
-            <PrimaryNav className={styles.nav} onClick={() => setIsMenuOpen(false)} />
+          <NextImage
+            src="/images/divider-flourish-alt.svg"
+            width={130}
+            height={12}
+            role="presentation"
+            className={classnames(flipped, styles.flourish)}
+          />
 
-            <NextImage
-              src="/images/divider-flourish-alt.svg"
-              width={130}
-              height={12}
-              role="presentation"
-              className={classnames(flipped, styles.flourish)}
-            />
-
-            <SocialMenu className={styles.social} />
-          </nav>
-        </Drawer>
-      )}
+          <SocialMenu className={styles.social} />
+        </nav>
+      </Drawer>
     </header>
   );
 };

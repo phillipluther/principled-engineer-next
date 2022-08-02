@@ -3,7 +3,6 @@
   background: url('/images/texture-tile.png'),
     linear-gradient(to bottom right, #c2c2b2, #e0e0d0, #a3a393);
   position: relative;
-  z-index: 0;
 }
 
 .logo {
@@ -18,7 +17,6 @@
   width: 156px;
   height: 28px;
   position: relative;
-  z-index: -1;
 }
 
 .menuButton {

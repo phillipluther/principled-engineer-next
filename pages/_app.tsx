@@ -1,4 +1,3 @@
-import { OverlayProvider } from 'react-aria';
 import { SSRProvider } from 'react-aria';
 import '@fontsource/merriweather/400.css';
 import '@fontsource/merriweather/700.css';
@@ -11,11 +10,9 @@ import '../components/global-styles.css';
 const App = ({ Component, pageProps }) => {
   return (
     <SSRProvider>
-      <OverlayProvider>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </OverlayProvider>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </SSRProvider>
   );
 };
