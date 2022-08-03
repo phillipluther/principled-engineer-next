@@ -8,6 +8,11 @@
 .title a {
   font-size: var(--font-size-3);
   color: #ffffef;
+  text-decoration: none;
+}
+
+.title a:hover {
+  text-decoration: underline;
 }
 
 .imageWrapper {
@@ -27,8 +32,14 @@
 .link::after {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  border: 0px solid #e0e0d0;
+  transition: border-width 160ms;
+}
+
+.link:hover::after {
+  border-width: 4px;
 }

@@ -9,7 +9,7 @@ import SocialMenu from '../social-menu';
 import { SkipNavLink } from '../skip-nav';
 
 import styles from './header.module.css';
-import { flipped, iconButton, padded } from '../style-utils.module.css';
+import { flipped, iconButton, padded, contained } from '../style-utils.module.css';
 
 const NavTitle = () => (
   <span className={styles.navTitle}>
@@ -30,7 +30,7 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className={classnames(padded, styles.header)}>
+    <header className={classnames(padded, contained, styles.header)}>
       <SkipNavLink label="Skip to Content" />
       <h1 className={styles.logo}>
         <NextLink href="/">

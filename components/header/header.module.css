@@ -62,6 +62,7 @@
   display: flex;
   align-items: center;
   margin-left: -14px;
+  line-height: var(--line-height-tight);
 }
 
 .navWrapper {

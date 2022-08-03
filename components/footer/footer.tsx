@@ -4,10 +4,10 @@ import PrimaryNav from '../primary-nav';
 import SocialMenu from '../social-menu';
 
 import styles from './footer.module.css';
-import { padded, textified } from '../style-utils.module.css';
+import { padded, textified, contained } from '../style-utils.module.css';
 
 const Footer = () => (
-  <footer className={classnames(padded, styles.footer)}>
+  <footer className={classnames(padded, contained, styles.footer)}>
     <VisuallyHidden elementType="h2">Site Footer</VisuallyHidden>
 
     <section className={classnames(styles.centered, styles.nav)}>
@@ -22,7 +22,7 @@ const Footer = () => (
       <SocialMenu onDark />
     </section>
 
-    <section className={classnames(styles.section, textified)}>
+    <section className={classnames(styles.legal, padded, textified)}>
       <VisuallyHidden elementType="h3">Legal Information and Disclaimers</VisuallyHidden>
       <p>
         All Principled Engineer content is Copyright &copy; {new Date().getFullYear()} by Phillip

@@ -7,6 +7,12 @@
   padding: 16px;
 }
 
+.contained {
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .iconButton {
   display: block;
   width: 56px;
