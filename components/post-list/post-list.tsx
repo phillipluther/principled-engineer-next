@@ -12,11 +12,11 @@ export type PostListProps = {
 };
 
 const PostList = ({ postsData }: PostListProps) => (
-  <section className={classnames(padded, styles.wrapper)}>
+  <section className={classnames(styles.wrapper)}>
     <ul className={styles.list}>
       {postsData.map((postData) => (
         <li key={postData.slug}>
-          <PostSummary {...postData} />
+          <PostSummary className={styles.summary} {...postData} />
         </li>
       ))}
     </ul>

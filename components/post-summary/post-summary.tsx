@@ -10,6 +10,7 @@ import { padded, displayFont, textified } from '../style-utils.module.css';
 
 export type PostSummaryProps = PostProps & {
   headingLevel?: 'h1' | 'h2' | 'h3' | 'h4';
+  className?: string;
 };
 
 const PostSummary = ({
@@ -19,11 +20,12 @@ const PostSummary = ({
   slug,
   cover = '/images/social-card.jpg',
   headingLevel: Heading = 'h2',
+  className,
 }: PostSummaryProps) => {
   const postLink = `/blog/${slug}`;
 
   return (
-    <article className={classnames(padded, textified, styles.wrapper)}>
+    <article className={classnames(padded, textified, styles.wrapper, className)}>
       <header>
         <div className={styles.imageWrapper}>
           <NextImage

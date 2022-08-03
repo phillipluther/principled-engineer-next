@@ -1,0 +1,18 @@
+.footer {
+  color: #c2c2b2;
+  font-size: 0.8rem;
+  margin-top: 32px;
+}
+
+.section {
+  margin: 16px 0;
+}
+
+.centered {
+  display: flex;
+  justify-content: center;
+}
+
+.nav a {
+  font-size: var(--font-size-1);
+}

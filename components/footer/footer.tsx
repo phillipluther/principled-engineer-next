@@ -1,25 +1,28 @@
 import { VisuallyHidden } from 'react-aria';
-import Padder from './padder';
-import PrimaryNav from './primary-nav';
-import SocialMenu from './social-menu';
+import classnames from 'classnames';
+import PrimaryNav from '../primary-nav';
+import SocialMenu from '../social-menu';
+
+import styles from './footer.module.css';
+import { padded, textified } from '../style-utils.module.css';
 
 const Footer = () => (
-  <Padder as="footer">
+  <footer className={classnames(padded, styles.footer)}>
     <VisuallyHidden elementType="h2">Site Footer</VisuallyHidden>
 
-    <section>
+    <section className={classnames(styles.centered, styles.nav)}>
       <VisuallyHidden elementType="h3">Supplemental Navigation</VisuallyHidden>
       <nav>
         <PrimaryNav />
       </nav>
     </section>
 
-    <section>
+    <section className={classnames(styles.centered, styles.social)}>
       <VisuallyHidden elementType="h3">Never Miss a Post!</VisuallyHidden>
       <SocialMenu onDark />
     </section>
 
-    <section>
+    <section className={classnames(styles.section, textified)}>
       <VisuallyHidden elementType="h3">Legal Information and Disclaimers</VisuallyHidden>
       <p>
         All Principled Engineer content is Copyright &copy; {new Date().getFullYear()} by Phillip
@@ -31,7 +34,7 @@ const Footer = () => (
         entities.
       </p>
     </section>
-  </Padder>
+  </footer>
 );
 
 export default Footer;

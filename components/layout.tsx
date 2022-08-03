@@ -1,17 +1,17 @@
 import Header from './header';
 import Footer from './footer';
-import Padder from './padder';
 import { SkipNavTarget } from './skip-nav';
+import { padded } from './style-utils.module.css';
 
 const Layout = ({ children }) => {
   return (
     <>
       <Header />
 
-      <Padder as="main">
+      <main className={padded}>
         <SkipNavTarget />
         {children}
-      </Padder>
+      </main>
       <Footer />
     </>
   );
