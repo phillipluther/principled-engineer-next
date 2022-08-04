@@ -1,34 +1,9 @@
-import ReactMarkdown from 'react-markdown';
 import NextImage from 'next/image';
-import classnames from 'classnames';
 import { PostProps, getPostPathParams, getPostData } from '../../lib/posts';
 import { formatDate } from '../../lib/utils';
 import Seo from '../../components/seo';
 import ContentHeader from '../../components/content-header';
-
-import { padded, displayFont } from '../../components/style-utils.module.css';
-
-const MarkdownComponents = {
-  p: (paragraph: { children?: boolean; node?: any }) => {
-    const { node } = paragraph;
-
-    if (node.children[0].tagName === 'img') {
-      const image = node.children[0];
-      return (
-        <figure>
-          <NextImage
-            src={image.properties.src}
-            alt={image.properties.alt}
-            layout="fill"
-            objectFit="cover"
-          />
-        </figure>
-      );
-    }
-
-    return <p>{paragraph.children}</p>;
-  },
-};
+import PostContent from '../../components/post-content';
 
 const PostPage = ({ postData }: { postData: PostProps }) => {
   const { title, summary, published, cover, cover_credit, cover_credit_link, cover_alt } = postData;
@@ -58,9 +33,7 @@ const PostPage = ({ postData }: { postData: PostProps }) => {
         )}
       </ContentHeader>
 
-      <section>
-        <ReactMarkdown children={postData.markdown} components={MarkdownComponents} />
-      </section>
+      <PostContent markdown={postData.markdown} />
 
       <footer />
     </article>

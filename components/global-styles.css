@@ -1,4 +1,7 @@
 :root {
+  --display-font: 'Lora', serif;
+  --text-font: 'Merriweather', serif;
+
   --font-size-0: 0.8rem;
   --font-size-1: 1rem;
   --font-size-2: 1.25rem;
@@ -11,8 +14,8 @@
   --font-size-9: 5.96rem;
 
   --line-height-tight: 1.25;
-  --line-height-mid: 1.563;
-  --line-height-loose: 1.953;
+  --line-height-mid: 1.6;
+  --line-height-loose: 1.75;
 }
 
 * {
@@ -22,9 +25,9 @@
 html,
 body {
   background: #0a0a00;
-  color: #e0e0d0;
+  color: #c2c2b2;
 }
 
 body {
-  font-family: 'Merriweather', serif;
+  font-family: var(--text-font);
 }
