@@ -1,9 +1,12 @@
 import ReactMarkdown from 'react-markdown';
 import NextImage from 'next/image';
+import classnames from 'classnames';
 import { PostProps, getPostPathParams, getPostData } from '../../lib/posts';
 import { formatDate } from '../../lib/utils';
 import Seo from '../../components/seo';
 import ContentHeader from '../../components/content-header';
+
+import { padded, displayFont } from '../../components/style-utils.module.css';
 
 const MarkdownComponents = {
   p: (paragraph: { children?: boolean; node?: any }) => {
@@ -55,9 +58,11 @@ const PostPage = ({ postData }: { postData: PostProps }) => {
         )}
       </ContentHeader>
 
-      <div>
+      <section>
         <ReactMarkdown children={postData.markdown} components={MarkdownComponents} />
-      </div>
+      </section>
+
+      <footer />
     </article>
   );
 };
