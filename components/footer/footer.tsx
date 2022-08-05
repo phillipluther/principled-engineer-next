@@ -2,6 +2,7 @@ import { VisuallyHidden } from 'react-aria';
 import classnames from 'classnames';
 import PrimaryNav from '../primary-nav';
 import SocialMenu from '../social-menu';
+import Flourish from '../flourish';
 
 import styles from './footer.module.css';
 import { padded, textified, contained } from '../style-utils.module.css';

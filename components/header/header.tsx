@@ -7,6 +7,7 @@ import Drawer from '../drawer';
 import PrimaryNav from '../primary-nav';
 import SocialMenu from '../social-menu';
 import { SkipNavLink } from '../skip-nav';
+import Flourish from '../flourish';
 
 import styles from './header.module.css';
 import { flipped, iconButton, padded, contained } from '../style-utils.module.css';
@@ -67,23 +68,9 @@ const Header = () => {
       </button>
       <Drawer title={<NavTitle />} isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)}>
         <nav className={styles.navWrapper}>
-          <NextImage
-            src="/images/divider-flourish-alt.svg"
-            width={130}
-            height={12}
-            role="presentation"
-            className={styles.flourish}
-          />
-
+          <Flourish variant="bloom" size="sm" />
           <PrimaryNav className={styles.nav} onClick={() => setIsMenuOpen(false)} />
-
-          <NextImage
-            src="/images/divider-flourish-alt.svg"
-            width={130}
-            height={12}
-            role="presentation"
-            className={classnames(flipped, styles.flourish)}
-          />
+          <Flourish variant="bloom" size="sm" className={flipped} />
 
           <SocialMenu className={styles.social} />
         </nav>

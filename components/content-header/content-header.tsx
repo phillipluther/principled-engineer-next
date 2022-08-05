@@ -1,5 +1,6 @@
 import NextImage from 'next/image';
 import classnames from 'classnames';
+import Flourish from '../flourish';
 
 import { displayFont, flipped } from '../style-utils.module.css';
 import styles from './content-header.module.css';
@@ -19,12 +20,6 @@ export type ContentHeaderProps = {
   [key: string]: any;
 };
 
-const Flourish = ({ className }: { className?: string }) => (
-  <div className={classnames(styles.flourish, className)}>
-    <NextImage src="/images/divider-flourish.svg" width={518} height={48} aria-hidden alt="" />
-  </div>
-);
-
 const ContentHeader = ({
   as: Tag = 'header',
   headingLevel: Heading = 'h1',
@@ -36,7 +31,7 @@ const ContentHeader = ({
 }: ContentHeaderProps) => {
   return (
     <Tag {...props}>
-      <Flourish />
+      <Flourish className={styles.flourish} />
 
       <Heading className={classnames(displayFont, styles.title)}>{title}</Heading>
 
@@ -44,12 +39,12 @@ const ContentHeader = ({
 
       {description && (
         <>
-          <Flourish className={flipped} />
+          <Flourish className={classnames(styles.flourish, flipped)} />
           <p className={styles.description}>{description}</p>
         </>
       )}
 
-      {!description && <Flourish className={flipped} />}
+      {!description && <Flourish className={classnames(styles.flourish, flipped)} />}
 
       {image && (
         <figure className={styles.image}>

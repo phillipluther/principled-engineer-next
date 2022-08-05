@@ -1,9 +1,5 @@
 .flourish {
-  width: 75%;
-  min-width: 240px;
-  max-width: 518px;
   margin: 32px auto;
-  opacity: 0.5;
 }
 
 .title {
@@ -25,7 +21,7 @@
 }
 
 .image {
-  width: 100vw;
+  width: calc(100% + 32px);
   margin-left: -16px;
 }
 
