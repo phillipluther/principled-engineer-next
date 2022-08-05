@@ -1,4 +1,3 @@
-import NextImage from 'next/image';
 import { PostProps, getPostPathParams, getPostData } from '../../lib/posts';
 import { formatDate } from '../../lib/utils';
 import Seo from '../../components/seo';
@@ -12,26 +11,12 @@ const PostPage = ({ postData }: { postData: PostProps }) => {
     <article>
       <Seo title={title} description={summary} />
 
-      <ContentHeader title={title} description={summary} published={formatDate(published)}>
-        {cover && (
-          <figure>
-            <NextImage src={cover} alt={cover_alt || title} width={1248} height={702} />
-
-            {cover_credit && (
-              <figcaption>
-                <>
-                  Cover image by{` `}
-                  {cover_credit_link ? (
-                    <a href={cover_credit_link}>{cover_credit}</a>
-                  ) : (
-                    { cover_credit }
-                  )}
-                </>
-              </figcaption>
-            )}
-          </figure>
-        )}
-      </ContentHeader>
+      <ContentHeader
+        title={title}
+        description={summary}
+        published={formatDate(published)}
+        image={{ src: cover, alt: cover_alt, credit: cover_credit, creditLink: cover_credit_link }}
+      />
 
       <PostContent markdown={postData.markdown} />
 

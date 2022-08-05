@@ -10,7 +10,12 @@ export type ContentHeaderProps = {
   title: React.ReactNode;
   description?: string;
   published?: string;
-  children?: React.ReactNode;
+  image?: {
+    src: string;
+    alt: string;
+    credit?: string;
+    creditLink?: string;
+  };
   [key: string]: any;
 };
 
@@ -26,7 +31,7 @@ const ContentHeader = ({
   title,
   description,
   published,
-  children,
+  image,
   ...props
 }: ContentHeaderProps) => {
   return (
@@ -46,7 +51,29 @@ const ContentHeader = ({
 
       {!description && <Flourish className={flipped} />}
 
-      {children}
+      {image && (
+        <figure className={styles.image}>
+          <NextImage
+            src={image.src}
+            alt={image.alt || title.toString()}
+            width={1248}
+            height={702}
+          />
+
+          {image.credit && (
+            <figcaption className={styles.credit}>
+              <>
+                Cover image by{` `}
+                {image.creditLink ? (
+                  <a href={image.creditLink}>{image.credit}</a>
+                ) : (
+                  <span>{image.credit}</span>
+                )}
+              </>
+            </figcaption>
+          )}
+        </figure>
+      )}
     </Tag>
   );
 };
