@@ -4,8 +4,10 @@ import classnames from 'classnames';
 import styles from './post-content.module.css';
 
 export type PostContentProps = {
-  markdown: string;
+  markdown?: string;
   className?: string;
+  children?: React.ReactNode;
+  as?: keyof JSX.IntrinsicElements;
 };
 
 const MarkdownComponents = {
@@ -30,10 +32,11 @@ const MarkdownComponents = {
   },
 };
 
-const PostContent = ({ markdown, className }: PostContentProps) => {
+const PostContent = ({ children, markdown, className, as: Tag = 'section' }: PostContentProps) => {
   return (
     <section className={classnames(styles.wrapper, className)}>
-      <ReactMarkdown children={markdown} components={MarkdownComponents} />
+      {markdown && <ReactMarkdown children={markdown} components={MarkdownComponents} />}
+      {children}
     </section>
   );
 };

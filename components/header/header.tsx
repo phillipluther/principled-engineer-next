@@ -68,9 +68,9 @@ const Header = () => {
       </button>
       <Drawer title={<NavTitle />} isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)}>
         <nav className={styles.navWrapper}>
-          <Flourish variant="bloom" size="sm" />
+          <Flourish variant="bloom" size="sm" className={styles.flourish} />
           <PrimaryNav className={styles.nav} onClick={() => setIsMenuOpen(false)} />
-          <Flourish variant="bloom" size="sm" className={flipped} />
+          <Flourish variant="bloom" size="sm" className={classnames(styles.flourish, flipped)} />
 
           <SocialMenu className={styles.social} />
         </nav>

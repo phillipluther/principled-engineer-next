@@ -6,6 +6,16 @@
   margin: 1.6rem 0;
 }
 
+.wrapper a {
+  color: #ffffef;
+  text-decoration: underline;
+}
+
+.wrapper a:hover,
+.wrapper a:focus-visible {
+  text-decoration: none;
+}
+
 .wrapper h2,
 .wrapper h3,
 .wrapper h4,
@@ -42,4 +52,9 @@
   overflow-x: auto;
   color: #e0e0d0;
   font-family: monospace;
+}
+
+.wrapper sup {
+  font-size: 0.64rem;
+  vertical-align: super;
 }

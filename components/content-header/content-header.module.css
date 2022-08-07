@@ -1,9 +1,14 @@
+.wrapper {
+  text-align: center;
+}
+
 .flourish {
-  margin: 32px auto;
+  margin: 24px auto 8px;
 }
 
 .title {
   font-size: var(--font-size-6);
+  text-shadow: 2px 1px 0px #474737;
   line-height: 1.15;
   color: #e0e0d0;
 }
@@ -26,6 +31,7 @@
 }
 
 .credit {
+  text-align: left;
   margin: 8px 0 32px 16px;
   font-size: var(--font-size-0);
   font-style: italic;

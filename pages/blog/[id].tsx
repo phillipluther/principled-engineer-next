@@ -3,6 +3,7 @@ import { formatDate } from '../../lib/utils';
 import Seo from '../../components/seo';
 import ContentHeader from '../../components/content-header';
 import PostContent from '../../components/post-content';
+import Bio from '../../components/bio';
 
 const PostPage = ({ postData }: { postData: PostProps }) => {
   const { title, summary, published, cover, cover_credit, cover_credit_link, cover_alt } = postData;
@@ -20,6 +21,7 @@ const PostPage = ({ postData }: { postData: PostProps }) => {
 
       <PostContent markdown={postData.markdown} />
 
+      <Bio />
       <footer />
     </article>
   );

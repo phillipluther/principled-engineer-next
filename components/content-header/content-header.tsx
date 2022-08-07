@@ -30,7 +30,7 @@ const ContentHeader = ({
   ...props
 }: ContentHeaderProps) => {
   return (
-    <Tag {...props}>
+    <Tag className={styles.wrapper} {...props}>
       <Flourish className={styles.flourish} />
 
       <Heading className={classnames(displayFont, styles.title)}>{title}</Heading>
