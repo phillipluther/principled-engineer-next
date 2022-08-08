@@ -2,7 +2,7 @@ import { PostProps, getPostPathParams, getPostData } from '../../lib/posts';
 import { formatDate } from '../../lib/utils';
 import Seo from '../../components/seo';
 import ContentHeader from '../../components/content-header';
-import PostContent from '../../components/post-content';
+import Content from '../../components/content';
 import Bio from '../../components/bio';
 
 const PostPage = ({ postData }: { postData: PostProps }) => {
@@ -19,7 +19,7 @@ const PostPage = ({ postData }: { postData: PostProps }) => {
         image={{ src: cover, alt: cover_alt, credit: cover_credit, creditLink: cover_credit_link }}
       />
 
-      <PostContent markdown={postData.markdown} />
+      <Content markdown={postData.markdown} />
 
       <Bio />
       <footer />

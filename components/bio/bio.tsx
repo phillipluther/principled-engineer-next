@@ -1,12 +1,12 @@
 import classnames from 'classnames';
 import NextImage from 'next/image';
-import PostContent from '../post-content';
+import Content from '../content';
 
 import styles from './bio.module.css';
 import { padded, displayFont } from '../style-utils.module.css';
 
 const Bio = () => (
-  <PostContent as="aside" className={classnames(padded, styles.wrapper)}>
+  <Content as="aside" className={classnames(padded, styles.wrapper)}>
     <h2 className={classnames(displayFont, styles.title)}>About the Author</h2>
     <div className={styles.image}>
       <NextImage
@@ -39,7 +39,7 @@ const Bio = () => (
       <sup>1</sup> I'm just over 40. Accounting for childhood and teenage buffoonery I'll translate
       "life long" to 20'ish years. Throwing that out for clarity.
     </p>
-  </PostContent>
+  </Content>
 );
 
 export default Bio;

@@ -1,6 +1,6 @@
 import Seo from '../components/seo';
 import ContentHeader from '../components/content-header';
-import PostContent from '../components/post-content';
+import Content from '../components/content';
 
 const title = 'About';
 const description =
@@ -11,7 +11,7 @@ const AboutPage = () => (
     <Seo title={title} description={description} />
     <ContentHeader title={title} description={description} />
 
-    <PostContent>
+    <Content>
       <h2>About the Blog</h2>
       <p>
         The Principled Engineer is a blog about building web applications. It focuses heavily on
@@ -43,7 +43,7 @@ const AboutPage = () => (
         Semi-related, bios are hard. Each post sports an "About the Author" blurb, though. Those'll
         have to do for now and I'll commit to building out this page as the blog grows.
       </p>
-    </PostContent>
+    </Content>
   </>
 );
 

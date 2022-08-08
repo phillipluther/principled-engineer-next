@@ -1,9 +1,9 @@
 import ReactMarkdown from 'react-markdown';
 import NextImage from 'next/image';
 import classnames from 'classnames';
-import styles from './post-content.module.css';
+import styles from './content.module.css';
 
-export type PostContentProps = {
+export type ContentProps = {
   markdown?: string;
   className?: string;
   children?: React.ReactNode;
@@ -32,13 +32,13 @@ const MarkdownComponents = {
   },
 };
 
-const PostContent = ({ children, markdown, className, as: Tag = 'section' }: PostContentProps) => {
+const Content = ({ children, markdown, className, as: Tag = 'section' }: ContentProps) => {
   return (
-    <section className={classnames(styles.wrapper, className)}>
+    <Tag className={classnames(styles.wrapper, className)}>
       {markdown && <ReactMarkdown children={markdown} components={MarkdownComponents} />}
       {children}
-    </section>
+    </Tag>
   );
 };
 
-export default PostContent;
+export default Content;
