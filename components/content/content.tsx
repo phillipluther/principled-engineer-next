@@ -1,7 +1,7 @@
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { dracula as theme } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { atomDark as theme } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import NextImage from 'next/image';
 import classnames from 'classnames';
 import styles from './content.module.css';

@@ -25,7 +25,7 @@ const AboutPage = () => (
       </p>
       <p>
         As such, consider this a fair warning that things might get finger-waggy at times. The
-        Principled Engineer is <a href="#author">this guy's</a> personal blog. It's editorial, not
+        Principled Engineer is <a href="#author">some dude's</a> personal blog. It's editorial, not
         journalism.
       </p>
 

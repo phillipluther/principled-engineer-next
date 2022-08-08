@@ -35,7 +35,7 @@ const ContentHeader = ({
 
       <Heading className={classnames(displayFont, styles.title)}>{title}</Heading>
 
-      <p className={styles.date}>{published}</p>
+      {published && <p className={styles.date}>{published}</p>}
 
       {description && (
         <>

@@ -34,7 +34,7 @@ const Flourish = ({ variant = 'wheel', size = 'md', className }: FlourishProps) 
 
   return (
     <div className={classnames(styles.wrapper, styles[size], className)}>
-      <NextImage src={src} alt="" width={width} height={height} />;
+      <NextImage src={src} alt="" width={width} height={height} />
     </div>
   );
 };
