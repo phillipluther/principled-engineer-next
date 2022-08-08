@@ -20,7 +20,7 @@ const Bio = () => (
     <p> My name is Phillip Luther. I go by Phil.</p>
 
     <p>
-      I'm a life-long<sup>1</sup> software engineer and classically trained musician. I'm also the
+      I'm a life-long<sup>*</sup> software engineer and classically trained musician. I'm also the
       creator of and sole contributor to the Principled Engineer, this very blog.
     </p>
 
@@ -36,7 +36,7 @@ const Bio = () => (
     </p>
 
     <p className={styles.finePrint}>
-      <sup>1</sup> I'm just over 40. Accounting for childhood and teenage buffoonery I'll translate
+      <sup>*</sup> I'm just over 40. Accounting for childhood and teenage buffoonery I'll translate
       "life long" to 20'ish years. Throwing that out for clarity.
     </p>
   </Content>

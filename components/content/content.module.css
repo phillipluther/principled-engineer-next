@@ -44,16 +44,6 @@
   font-size: var(--font-size-4);
 }
 
-.wrapper code {
-  display: block;
-  padding: 12px;
-  background: #292919;
-  border-bottom: 2px solid #474737;
-  overflow-x: auto;
-  color: #e0e0d0;
-  font-family: monospace;
-}
-
 .wrapper sup {
   font-size: 0.64rem;
   vertical-align: super;
