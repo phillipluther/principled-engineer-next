@@ -1,3 +1,10 @@
+/* eslint-disable react/no-children-prop */
+/**
+ * ^ disabling this rule in the file because react-markdown docs are written using
+ * children as a prop; _probably_ fine to refactor, but not currently interested in
+ * experimenting/testing it
+ */
+
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
@@ -18,7 +25,7 @@ const MarkdownComponents = {
     if (node.children[0].tagName === 'img') {
       const image = node.children[0];
       return (
-        <figure>
+        <figure className={styles.figure}>
           <NextImage
             src={image.properties.src}
             alt={image.properties.alt}
@@ -31,7 +38,7 @@ const MarkdownComponents = {
 
     return <p>{children}</p>;
   },
-  code({ node, inline, className, children, ...props }) {
+  code({ inline, className, children, ...props }) {
     const match = /language-(\w+)/.exec(className || '');
 
     return !inline && match ? (
@@ -57,6 +64,8 @@ const Content = ({ children, markdown, className, as: Tag = 'section' }: Content
         <ReactMarkdown
           children={markdown}
           rehypePlugins={[rehypeRaw]}
+          // ... not that interested in reconciling 3rd party type declarations ...
+          // @ts-ignore
           components={MarkdownComponents}
         />
       )}

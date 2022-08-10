@@ -8,9 +8,7 @@ export type SocialMenuItemProps = PrimaryNavItemProps & {
 };
 
 export type SocialMenuProps = {
-  onDark?: boolean;
   className?: string;
-  [key: string]: any;
 };
 
 export const socialItems: SocialMenuItemProps[] = [
@@ -27,8 +25,8 @@ export const socialItems: SocialMenuItemProps[] = [
   { label: 'Subscribe with RSS', href: '/feed.xml', icon: BsRssFill },
 ];
 
-const SocialMenu = ({ onDark = false, className, ...props }: SocialMenuProps) => (
-  <ul className={classnames(styles.wrapper, className)}>
+const SocialMenu = ({ className, ...props }: SocialMenuProps) => (
+  <ul className={classnames(styles.wrapper, className)} {...props}>
     {socialItems.map(({ label, href, icon: Icon }) => (
       <li className={styles.item} key={href}>
         <a href={href} title={label} className={styles.link}>

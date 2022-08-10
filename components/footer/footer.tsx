@@ -19,7 +19,7 @@ const Footer = () => (
 
     <section className={classnames(styles.centered)}>
       <VisuallyHidden elementType="h3">Never Miss a Post!</VisuallyHidden>
-      <SocialMenu onDark />
+      <SocialMenu />
     </section>
 
     <section className={classnames(styles.legal, styleUtils.padded, styleUtils.textified)}>

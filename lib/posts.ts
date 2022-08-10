@@ -23,16 +23,18 @@ export type PostProps = {
   cover_alt?: string;
 };
 
-export const sortObjByProp = (obj: { [key: string]: any }, prop: string) =>
-  obj.sort(({ [prop]: a }: { [key: string]: any }, { [prop]: b }: { [key: string]: any }) => {
-    if (a > b) {
-      return -1;
-    } else if (a < b) {
-      return 1;
-    }
+export const sortObjByProp = (obj, prop: string) =>
+  obj.sort(
+    ({ [prop]: a }: { [key: string]: unknown }, { [prop]: b }: { [key: string]: unknown }) => {
+      if (a > b) {
+        return -1;
+      } else if (a < b) {
+        return 1;
+      }
 
-    return 0;
-  });
+      return 0;
+    },
+  );
 
 export const getPostFiles = () =>
   klaw(postsDir, { nodir: true }).filter(({ path: filepath }) => /\.mdx?/.test(filepath));
@@ -45,7 +47,6 @@ export const copyPostAssets = (postDir) => {
     }
 
     const { base: filename } = path.parse(filepath);
-    const destDir = path.join(assetsDir, filename);
 
     fs.mkdirSync(assetsDir, { recursive: true });
     fs.cpSync(filepath, path.join(assetsDir, filename));

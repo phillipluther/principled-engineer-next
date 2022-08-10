@@ -5,7 +5,7 @@ import styles from './primary-nav.module.css';
 export type PrimaryNavProps = {
   showHome?: boolean;
   className?: string;
-  [key: string]: any;
+  [key: string]: unknown;
 };
 
 export type PrimaryNavItemProps = {

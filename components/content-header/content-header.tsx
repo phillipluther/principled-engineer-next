@@ -17,7 +17,7 @@ export type ContentHeaderProps = {
     credit?: string;
     creditLink?: string;
   };
-  [key: string]: any;
+  [key: string]: unknown;
 };
 
 const { displayFont, flipped } = styleUtils;

@@ -11,7 +11,7 @@ export type DrawerProps = {
   closeLabel?: string;
   onClose: (value?: boolean) => void;
   children: React.ReactNode;
-  [key: string]: any;
+  isOpen: boolean;
 };
 
 const Drawer = ({

@@ -1,6 +1,12 @@
 module.exports = {
-  extends: ['next/core-web-vitals', 'airbnb', 'airbnb/hooks', 'prettier'],
-  plugins: ['react', '@typescript-eslint', 'prettier'],
+  // extends: ['next/core-web-vitals', 'airbnb', 'airbnb/hooks', 'prettier'],
+  extends: [
+    'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:react/recommended',
+    'plugin:@next/next/recommended',
+  ],
+  plugins: ['react', '@typescript-eslint'],
   env: {
     browser: true,
     es2021: true,
@@ -20,18 +26,11 @@ module.exports = {
     'react/jsx-props-no-spreading': 'off',
     'import/prefer-default-export': 'off',
     'no-param-reassign': 'off',
-    'import/extensions': [
-      'error',
-      'ignorePackages',
-      {
-        ts: 'never',
-        tsx: 'never',
-      },
-    ],
     'consistent-return': 'off',
     'arrow-body-style': 'off',
     'prefer-arrow-callback': 'off',
     'react/jsx-filename-extension': 'off',
+    'react/no-unescaped-entities': 'off',
     'react/function-component-definition': [
       'error',
       {
@@ -39,5 +38,6 @@ module.exports = {
         unnamedComponents: 'arrow-function',
       },
     ],
+    '@typescript-eslint/ban-ts-comment': 'off',
   },
 };
