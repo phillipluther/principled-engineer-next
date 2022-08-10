@@ -2,14 +2,14 @@ import classnames from 'classnames';
 import Header from './header';
 import Footer from './footer';
 import { SkipNavTarget } from './skip-nav';
-import { padded, contained } from './style-utils.module.css';
+import styleUtils from './style-utils.module.css';
 
 const Layout = ({ children }) => {
   return (
     <>
       <Header />
 
-      <main className={classnames(padded, contained)}>
+      <main className={classnames(styleUtils.padded, styleUtils.contained)}>
         <SkipNavTarget />
         {children}
       </main>

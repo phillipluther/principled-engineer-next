@@ -2,13 +2,12 @@ import { VisuallyHidden } from 'react-aria';
 import classnames from 'classnames';
 import PrimaryNav from '../primary-nav';
 import SocialMenu from '../social-menu';
-import Flourish from '../flourish';
 
 import styles from './footer.module.css';
-import { padded, textified, contained } from '../style-utils.module.css';
+import styleUtils from '../style-utils.module.css';
 
 const Footer = () => (
-  <footer className={classnames(padded, contained, styles.footer)}>
+  <footer className={classnames(styleUtils.padded, styleUtils.contained, styles.footer)}>
     <VisuallyHidden elementType="h2">Site Footer</VisuallyHidden>
 
     <section className={classnames(styles.centered, styles.nav)}>
@@ -18,12 +17,12 @@ const Footer = () => (
       </nav>
     </section>
 
-    <section className={classnames(styles.centered, styles.social)}>
+    <section className={classnames(styles.centered)}>
       <VisuallyHidden elementType="h3">Never Miss a Post!</VisuallyHidden>
       <SocialMenu onDark />
     </section>
 
-    <section className={classnames(styles.legal, padded, textified)}>
+    <section className={classnames(styles.legal, styleUtils.padded, styleUtils.textified)}>
       <VisuallyHidden elementType="h3">Legal Information and Disclaimers</VisuallyHidden>
       <p>
         All Principled Engineer content is Copyright &copy; {new Date().getFullYear()} by Phillip

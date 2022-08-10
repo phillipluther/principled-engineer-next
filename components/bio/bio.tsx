@@ -3,7 +3,9 @@ import NextImage from 'next/image';
 import Content from '../content';
 
 import styles from './bio.module.css';
-import { padded, displayFont } from '../style-utils.module.css';
+import styleUtils from '../style-utils.module.css';
+
+const { padded, displayFont } = styleUtils;
 
 const Bio = () => (
   <Content as="aside" className={classnames(padded, styles.wrapper)}>

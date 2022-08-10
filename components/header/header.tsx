@@ -10,7 +10,7 @@ import { SkipNavLink } from '../skip-nav';
 import Flourish from '../flourish';
 
 import styles from './header.module.css';
-import { flipped, iconButton, padded, contained } from '../style-utils.module.css';
+import styleUtils from '../style-utils.module.css';
 
 const NavTitle = () => (
   <span className={styles.navTitle}>
@@ -22,7 +22,7 @@ const NavTitle = () => (
       height={48}
       className={styles.badge}
     />
-    <span className={styles.navText}>The Principled Engineer</span>
+    <span>The Principled Engineer</span>
   </span>
 );
 
@@ -31,7 +31,7 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className={classnames(padded, contained, styles.header)}>
+    <header className={classnames(styleUtils.padded, styleUtils.contained, styles.header)}>
       <SkipNavLink label="Skip to Content" />
       <h1 className={styles.logo}>
         <NextLink href="/">
@@ -59,7 +59,7 @@ const Header = () => {
       </div>
       <button
         type="button"
-        className={classnames(iconButton, styles.menuButton)}
+        className={classnames(styleUtils.iconButton, styles.menuButton)}
         ref={buttonRef}
         onClick={() => setIsMenuOpen(true)}
       >
@@ -70,7 +70,11 @@ const Header = () => {
         <nav className={styles.navWrapper}>
           <Flourish variant="bloom" size="sm" className={styles.flourish} />
           <PrimaryNav className={styles.nav} onClick={() => setIsMenuOpen(false)} />
-          <Flourish variant="bloom" size="sm" className={classnames(styles.flourish, flipped)} />
+          <Flourish
+            variant="bloom"
+            size="sm"
+            className={classnames(styles.flourish, styleUtils.flipped)}
+          />
 
           <SocialMenu className={styles.social} />
         </nav>

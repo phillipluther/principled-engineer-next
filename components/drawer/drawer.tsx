@@ -3,7 +3,7 @@ import { VisuallyHidden } from 'react-aria';
 import { Dialog, Transition } from '@headlessui/react';
 import classnames from 'classnames';
 import styles from './drawer.module.css';
-import { iconButton, padded } from '../style-utils.module.css';
+import styleUtils from '../style-utils.module.css';
 
 export type DrawerProps = {
   title: React.ReactNode;
@@ -47,13 +47,16 @@ const Drawer = ({
           as={Fragment}
           unmount={true}
         >
-          <Dialog.Panel as="section" className={classnames(padded, styles.overlay, className)}>
+          <Dialog.Panel
+            as="section"
+            className={classnames(styleUtils.padded, styles.overlay, className)}
+          >
             <header className={styles.header}>
               <Dialog.Title>{title}</Dialog.Title>
 
               <button
                 type="button"
-                className={classnames(iconButton, styles.close)}
+                className={classnames(styleUtils.iconButton, styles.close)}
                 onClick={() => onClose()}
               >
                 <span className={styles.closeX} />
@@ -70,29 +73,3 @@ const Drawer = ({
 };
 
 export default Drawer;
-
-/***
- * 
- * 
- * 
- * {/* <Transition
-        show={isOpen}
-        // enter="transition duration-100 ease-out"
-        enter={styles.underlayEnter}
-        // enterFrom="transform scale-95 opacity-0"
-        // enterTo="transform scale-100 opacity-100"
-        enterTo={styles.underlayEnterDone}
-        // leave="transition duration-75 ease-out"
-        // leaveFrom="transform scale-100 opacity-100"
-        // leaveTo="transform scale-95 opacity-0"
-        leaveTo={styles.underlayExit}
-        as={Fragment}
-      >
-        <Dialog onClose={onClose} className={classnames(styles.overlay, className)}>
-          <Dialog.Panel>
-            <Dialog.Title>{title}</Dialog.Title>
-
-            {children}
-          </Dialog.Panel>
-        </Dialog>
-      </Transition> */

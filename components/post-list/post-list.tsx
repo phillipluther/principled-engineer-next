@@ -3,7 +3,6 @@ import classnames from 'classnames';
 import { PostProps } from '../../lib/posts';
 
 import styles from './post-list.module.css';
-import { padded } from '../style-utils.module.css';
 
 export type PostListProps = {
   title: string;
@@ -13,7 +12,7 @@ export type PostListProps = {
 
 const PostList = ({ postsData }: PostListProps) => (
   <section className={classnames(styles.wrapper)}>
-    <ul className={styles.list}>
+    <ul>
       {postsData.map((postData) => (
         <li key={postData.slug}>
           <PostSummary className={styles.summary} {...postData} />

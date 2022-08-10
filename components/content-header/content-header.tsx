@@ -2,7 +2,7 @@ import NextImage from 'next/image';
 import classnames from 'classnames';
 import Flourish from '../flourish';
 
-import { displayFont, flipped } from '../style-utils.module.css';
+import styleUtils from '../style-utils.module.css';
 import styles from './content-header.module.css';
 
 export type ContentHeaderProps = {
@@ -19,6 +19,8 @@ export type ContentHeaderProps = {
   };
   [key: string]: any;
 };
+
+const { displayFont, flipped } = styleUtils;
 
 const ContentHeader = ({
   as: Tag = 'header',

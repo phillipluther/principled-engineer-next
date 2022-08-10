@@ -14,9 +14,7 @@ export type ContentProps = {
 };
 
 const MarkdownComponents = {
-  p: (paragraph: { children?: boolean; node?: any }) => {
-    const { node } = paragraph;
-
+  p: ({ node, children }) => {
     if (node.children[0].tagName === 'img') {
       const image = node.children[0];
       return (
@@ -31,7 +29,7 @@ const MarkdownComponents = {
       );
     }
 
-    return <p>{paragraph.children}</p>;
+    return <p>{children}</p>;
   },
   code({ node, inline, className, children, ...props }) {
     const match = /language-(\w+)/.exec(className || '');

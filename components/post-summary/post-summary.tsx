@@ -6,7 +6,7 @@ import { PostProps } from '../../lib/posts';
 import { formatDate } from '../../lib/utils';
 
 import styles from './post-summary.module.css';
-import { padded, displayFont, textified } from '../style-utils.module.css';
+import styleUtils from '../style-utils.module.css';
 
 export type PostSummaryProps = PostProps & {
   headingLevel?: 'h1' | 'h2' | 'h3' | 'h4';
@@ -25,7 +25,9 @@ const PostSummary = ({
   const postLink = `/blog/${slug}`;
 
   return (
-    <article className={classnames(padded, textified, styles.wrapper, className)}>
+    <article
+      className={classnames(styleUtils.padded, styleUtils.textified, styles.wrapper, className)}
+    >
       <header>
         <div className={styles.imageWrapper}>
           <NextImage
@@ -39,7 +41,7 @@ const PostSummary = ({
           />
         </div>
 
-        <Heading className={classnames(displayFont, styles.title)}>
+        <Heading className={classnames(styleUtils.displayFont, styles.title)}>
           <NextLink href={postLink}>{title}</NextLink>
         </Heading>
         <p>{formatDate(published)}</p>
