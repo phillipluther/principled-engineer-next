@@ -38,7 +38,7 @@ const MarkdownComponents = {
 
     return <p>{children}</p>;
   },
-  code({ inline, className, children, ...props }) {
+  code({ node, inline, className, children, ...props }) {
     const match = /language-(\w+)/.exec(className || '');
 
     return !inline && match ? (
@@ -50,7 +50,7 @@ const MarkdownComponents = {
         {...props}
       />
     ) : (
-      <code className={className} {...props}>
+      <code className={styles.code} {...props}>
         {children}
       </code>
     );

@@ -49,8 +49,37 @@
   vertical-align: super;
 }
 
+.wrapper blockquote {
+  position: relative;
+  overflow: hidden;
+  padding: 4px 0 4px 24px;
+  font-size: var(--font-size-2);
+  color: #a3a393;
+  font-style: italic;
+  z-index: 0;
+}
+
+.wrapper blockquote::before {
+  content: '\201C';
+  line-height: 1;
+  font-size: var(--font-size-9);
+  color: #474737;
+  position: absolute;
+  top: 0;
+  left: -24px;
+  z-index: -1;
+}
+
 .figure {
   position: relative;
   width: 100%;
   padding-bottom: 56.25%;
+}
+
+.code {
+  font-family: monospace;
+  font-size: var(--font-size-1);
+  background: #292919;
+  display: inline-block;
+  padding: 0 4px;
 }
